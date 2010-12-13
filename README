@@ -1,0 +1,36 @@
+Copyright (c) 2010 Daniel Drzimotta (djdrzzy@gmail.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
+README
+======
+
+So what is this software about? This is a quick and dirty project to get a
+small and quick implementation of a computer up and running for use for other
+projects. The main motivation was to be able to describe a computer in a
+fashion that other programs can easily manipulate.
+
+It has its own unique assembly language along with an assembler which you can
+use to compile your program into the proper format so that you can program for
+the computer in a human readable fashion.
+
+There is a not-very-rigourous test suite that you can run.
+
+And that is it! If there are any questions feel free to give me a shout.

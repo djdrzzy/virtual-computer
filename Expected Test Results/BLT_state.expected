@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>memory</key>
+	<array>
+		<integer>536871168</integer>
+		<integer>3</integer>
+		<integer>603979776</integer>
+		<integer>536936960</integer>
+		<integer>8</integer>
+		<integer>84082691</integer>
+		<integer>14</integer>
+		<integer>603979776</integer>
+		<integer>84082691</integer>
+		<integer>-7</integer>
+		<integer>603979776</integer>
+		<integer>603979776</integer>
+	</array>
+	<key>registers</key>
+	<dict>
+		<key>genericRegisters</key>
+		<array>
+			<integer>8</integer>
+			<integer>9</integer>
+			<integer>8</integer>
+			<integer>21</integer>
+		</array>
+		<key>haltFlag</key>
+		<true/>
+		<key>input</key>
+		<string></string>
+		<key>output</key>
+		<string></string>
+		<key>programCounter</key>
+		<integer>7</integer>
+	</dict>
+</dict>
+</plist>

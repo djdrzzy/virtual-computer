@@ -1,0 +1,1355 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		150504D21091331D000DFC89 /* VCVirtualComputer.m in Sources */ = {isa = PBXBuildFile; fileRef = 151B15B6102513F7007AB3A0 /* VCVirtualComputer.m */; };
+		150504F5109133A2000DFC89 /* VCInstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61321025033F00FC2363 /* VCInstruction.m */; };
+		150504F6109133A2000DFC89 /* VCInstructionAddDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61591025089600FC2363 /* VCInstructionAddDelegate.m */; };
+		150504F7109133A2000DFC89 /* VCInstructionSubtractDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C615D1025089600FC2363 /* VCInstructionSubtractDelegate.m */; };
+		150504F8109133A2000DFC89 /* VCInstructionSubtractImmediateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C615F1025089600FC2363 /* VCInstructionSubtractImmediateDelegate.m */; };
+		150504F9109133A2000DFC89 /* VCInstructionAddImmediateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61611025089600FC2363 /* VCInstructionAddImmediateDelegate.m */; };
+		150504FA109133A2000DFC89 /* VCInstructionMultiplyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61651025089600FC2363 /* VCInstructionMultiplyDelegate.m */; };
+		150504FB109133A2000DFC89 /* VCInstructionDivideDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61671025089600FC2363 /* VCInstructionDivideDelegate.m */; };
+		150504FC109133A2000DFC89 /* VCInstructionLoadWordImmediateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61A710250A7100FC2363 /* VCInstructionLoadWordImmediateDelegate.m */; };
+		150504FD109133A2000DFC89 /* VCInstructionStoreWordImmediateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61AB10250A7100FC2363 /* VCInstructionStoreWordImmediateDelegate.m */; };
+		150504FE109133A2000DFC89 /* VCInstructionAndDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61B710250B9F00FC2363 /* VCInstructionAndDelegate.m */; };
+		150504FF109133A2000DFC89 /* VCInstructionAndImmediateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61B910250B9F00FC2363 /* VCInstructionAndImmediateDelegate.m */; };
+		15050500109133A2000DFC89 /* VCInstructionOrDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61BB10250B9F00FC2363 /* VCInstructionOrDelegate.m */; };
+		15050501109133A2000DFC89 /* VCInstructionOrImmediateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61BD10250B9F00FC2363 /* VCInstructionOrImmediateDelegate.m */; };
+		15050502109133A2000DFC89 /* VCInstructionXorDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61BF10250B9F00FC2363 /* VCInstructionXorDelegate.m */; };
+		15050503109133A2000DFC89 /* VCInstructionNotDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61C110250B9F00FC2363 /* VCInstructionNotDelegate.m */; };
+		15050504109133A2000DFC89 /* VCInstructionSetOnLessThanDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61C310250B9F00FC2363 /* VCInstructionSetOnLessThanDelegate.m */; };
+		15050505109133A2000DFC89 /* VCInstructionSetOnLessThanImmediateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61C510250B9F00FC2363 /* VCInstructionSetOnLessThanImmediateDelegate.m */; };
+		15050506109133A2000DFC89 /* VCInstructionJumpDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61E110250E1A00FC2363 /* VCInstructionJumpDelegate.m */; };
+		15050507109133A2000DFC89 /* VCInstructionJumpRegisterDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61E310250E1A00FC2363 /* VCInstructionJumpRegisterDelegate.m */; };
+		15050508109133A2000DFC89 /* VCInstructionBranchOnEqualDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61E710250E2700FC2363 /* VCInstructionBranchOnEqualDelegate.m */; };
+		15050509109133A2000DFC89 /* VCInstructionBranchOnNotEqualDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61E910250E2700FC2363 /* VCInstructionBranchOnNotEqualDelegate.m */; };
+		1505050A109133A2000DFC89 /* VCInstructionShiftLeftLogicalDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61EE10250E7000FC2363 /* VCInstructionShiftLeftLogicalDelegate.m */; };
+		1505050B109133A2000DFC89 /* VCInstructionShiftRightLogicalDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61F010250E7000FC2363 /* VCInstructionShiftRightLogicalDelegate.m */; };
+		1505050C109133A2000DFC89 /* VCRegisters.m in Sources */ = {isa = PBXBuildFile; fileRef = 151B15C11025141E007AB3A0 /* VCRegisters.m */; };
+		1505050D109133A2000DFC89 /* VCMemory.m in Sources */ = {isa = PBXBuildFile; fileRef = 151B15DA10251497007AB3A0 /* VCMemory.m */; };
+		1505050E109133A2000DFC89 /* VCInstructionInputDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D5C65010262E82005B8CAE /* VCInstructionInputDelegate.m */; };
+		1505050F109133A2000DFC89 /* VCInstructionOutputDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D5C65310262E95005B8CAE /* VCInstructionOutputDelegate.m */; };
+		15050510109133A2000DFC89 /* VCInstructionHaltDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D5C65610262EA1005B8CAE /* VCInstructionHaltDelegate.m */; };
+		15050511109133A2000DFC89 /* VCInstructionBranchGreaterThanDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D5C65910262ED4005B8CAE /* VCInstructionBranchGreaterThanDelegate.m */; };
+		15050512109133A2000DFC89 /* VCInstructionBranchGreaterEqualDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D5C65C10262EEB005B8CAE /* VCInstructionBranchGreaterEqualDelegate.m */; };
+		15050513109133A2000DFC89 /* VCInstructionBranchLessThanDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D5C65F10262F05005B8CAE /* VCInstructionBranchLessThanDelegate.m */; };
+		15050514109133A2000DFC89 /* VCInstructionBranchLessEqualDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D5C66210262F14005B8CAE /* VCInstructionBranchLessEqualDelegate.m */; };
+		15050515109133A2000DFC89 /* VCInstructionNopDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 151B4805106ED8B400B4C754 /* VCInstructionNopDelegate.m */; };
+		15050516109133A2000DFC89 /* VCInstructionDelegateCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 151B480C106EDA1200B4C754 /* VCInstructionDelegateCache.m */; };
+		150A1E7D10AFCDA50080FA0F /* VCInstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61321025033F00FC2363 /* VCInstruction.m */; };
+		150A1E9910AFCDB70080FA0F /* VCInstructionDelegateCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 151B480C106EDA1200B4C754 /* VCInstructionDelegateCache.m */; };
+		150A1E9A10AFCDD70080FA0F /* VCInstructionAddDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61591025089600FC2363 /* VCInstructionAddDelegate.m */; };
+		150A1E9B10AFCDD70080FA0F /* VCInstructionSubtractDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C615D1025089600FC2363 /* VCInstructionSubtractDelegate.m */; };
+		150A1E9C10AFCDD70080FA0F /* VCInstructionSubtractImmediateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C615F1025089600FC2363 /* VCInstructionSubtractImmediateDelegate.m */; };
+		150A1E9D10AFCDD70080FA0F /* VCInstructionAddImmediateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61611025089600FC2363 /* VCInstructionAddImmediateDelegate.m */; };
+		150A1E9E10AFCDD70080FA0F /* VCInstructionMultiplyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61651025089600FC2363 /* VCInstructionMultiplyDelegate.m */; };
+		150A1E9F10AFCDD70080FA0F /* VCInstructionDivideDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61671025089600FC2363 /* VCInstructionDivideDelegate.m */; };
+		150A1EA010AFCDD70080FA0F /* VCInstructionLoadWordImmediateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61A710250A7100FC2363 /* VCInstructionLoadWordImmediateDelegate.m */; };
+		150A1EA110AFCDD70080FA0F /* VCInstructionStoreWordImmediateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61AB10250A7100FC2363 /* VCInstructionStoreWordImmediateDelegate.m */; };
+		150A1EA210AFCDD70080FA0F /* VCInstructionAndDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61B710250B9F00FC2363 /* VCInstructionAndDelegate.m */; };
+		150A1EA310AFCDD70080FA0F /* VCInstructionAndImmediateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61B910250B9F00FC2363 /* VCInstructionAndImmediateDelegate.m */; };
+		150A1EA410AFCDD70080FA0F /* VCInstructionOrDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61BB10250B9F00FC2363 /* VCInstructionOrDelegate.m */; };
+		150A1EA510AFCDD70080FA0F /* VCInstructionOrImmediateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61BD10250B9F00FC2363 /* VCInstructionOrImmediateDelegate.m */; };
+		150A1EA610AFCDD70080FA0F /* VCInstructionXorDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61BF10250B9F00FC2363 /* VCInstructionXorDelegate.m */; };
+		150A1EA710AFCDD70080FA0F /* VCInstructionNotDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61C110250B9F00FC2363 /* VCInstructionNotDelegate.m */; };
+		150A1EA810AFCDD70080FA0F /* VCInstructionSetOnLessThanDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61C310250B9F00FC2363 /* VCInstructionSetOnLessThanDelegate.m */; };
+		150A1EA910AFCDD70080FA0F /* VCInstructionSetOnLessThanImmediateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61C510250B9F00FC2363 /* VCInstructionSetOnLessThanImmediateDelegate.m */; };
+		150A1EAA10AFCDD70080FA0F /* VCInstructionJumpDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61E110250E1A00FC2363 /* VCInstructionJumpDelegate.m */; };
+		150A1EAB10AFCDD70080FA0F /* VCInstructionJumpRegisterDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61E310250E1A00FC2363 /* VCInstructionJumpRegisterDelegate.m */; };
+		150A1EAC10AFCDD70080FA0F /* VCInstructionBranchOnEqualDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61E710250E2700FC2363 /* VCInstructionBranchOnEqualDelegate.m */; };
+		150A1EAD10AFCDD70080FA0F /* VCInstructionBranchOnNotEqualDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61E910250E2700FC2363 /* VCInstructionBranchOnNotEqualDelegate.m */; };
+		150A1EAE10AFCDD70080FA0F /* VCInstructionShiftLeftLogicalDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61EE10250E7000FC2363 /* VCInstructionShiftLeftLogicalDelegate.m */; };
+		150A1EAF10AFCDD70080FA0F /* VCInstructionShiftRightLogicalDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61F010250E7000FC2363 /* VCInstructionShiftRightLogicalDelegate.m */; };
+		150A1EB010AFCDF00080FA0F /* VCInstructionInputDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D5C65010262E82005B8CAE /* VCInstructionInputDelegate.m */; };
+		150A1EB110AFCDF00080FA0F /* VCInstructionOutputDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D5C65310262E95005B8CAE /* VCInstructionOutputDelegate.m */; };
+		150A1EB210AFCDF00080FA0F /* VCInstructionHaltDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D5C65610262EA1005B8CAE /* VCInstructionHaltDelegate.m */; };
+		150A1EB310AFCDF00080FA0F /* VCInstructionBranchGreaterThanDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D5C65910262ED4005B8CAE /* VCInstructionBranchGreaterThanDelegate.m */; };
+		150A1EB410AFCDF00080FA0F /* VCInstructionBranchGreaterEqualDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D5C65C10262EEB005B8CAE /* VCInstructionBranchGreaterEqualDelegate.m */; };
+		150A1EB510AFCDF00080FA0F /* VCInstructionBranchLessThanDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D5C65F10262F05005B8CAE /* VCInstructionBranchLessThanDelegate.m */; };
+		150A1EB610AFCDF00080FA0F /* VCInstructionBranchLessEqualDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D5C66210262F14005B8CAE /* VCInstructionBranchLessEqualDelegate.m */; };
+		150A1EB710AFCDF00080FA0F /* VCInstructionNopDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 151B4805106ED8B400B4C754 /* VCInstructionNopDelegate.m */; };
+		150A1EB810AFCDFB0080FA0F /* VCInstructionLoadWordDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C637A1109396D7005DF9F4 /* VCInstructionLoadWordDelegate.m */; };
+		150A1EB910AFCDFB0080FA0F /* VCInstructionStoreWordDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C637A5109396EE005DF9F4 /* VCInstructionStoreWordDelegate.m */; };
+		150A1EBE10AFCE4A0080FA0F /* VCMemory.m in Sources */ = {isa = PBXBuildFile; fileRef = 151B15DA10251497007AB3A0 /* VCMemory.m */; };
+		150A1EC110AFCE5C0080FA0F /* VCRegisters.m in Sources */ = {isa = PBXBuildFile; fileRef = 151B15C11025141E007AB3A0 /* VCRegisters.m */; };
+		156DBB4A121799E1008709BE /* instructionTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 156DBB49121799E1008709BE /* instructionTestMain.m */; };
+		156DBB551218895C008709BE /* TestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 156DBB541218895C008709BE /* TestRunner.m */; };
+		1578DBFA106EF93B00BF32A0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		1578DC1D106EFABA00BF32A0 /* commandLineMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 1578DC1C106EFABA00BF32A0 /* commandLineMain.m */; };
+		157D36391093B9C200B21488 /* vcassemMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 157D36381093B9C200B21488 /* vcassemMain.m */; };
+		157D364C1093BD7C00B21488 /* VCAssemblerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 157D364B1093BD7C00B21488 /* VCAssemblerHelper.m */; };
+		15B8E54912B48BD7002CE543 /* LW_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD4A81172A7ED0068FD7E /* LW_test.s */; };
+		15B8E54A12B48BD7002CE543 /* LWI_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD4A91172A7FB0068FD7E /* LWI_test.s */; };
+		15B8E54B12B48BD7002CE543 /* SW_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD4AA1172A8090068FD7E /* SW_test.s */; };
+		15B8E54C12B48BD7002CE543 /* SWI_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD4AB1172A8160068FD7E /* SWI_test.s */; };
+		15B8E54D12B48BD7002CE543 /* AND_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD4AC1172A8360068FD7E /* AND_test.s */; };
+		15B8E54E12B48BD7002CE543 /* ANDI_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD4AE1172A84B0068FD7E /* ANDI_test.s */; };
+		15B8E54F12B48BD7002CE543 /* OR_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD4B01172A8530068FD7E /* OR_test.s */; };
+		15B8E55012B48BD7002CE543 /* ORI_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD4B21172A85E0068FD7E /* ORI_test.s */; };
+		15B8E55112B48BD7002CE543 /* XOR_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD4B41172A8840068FD7E /* XOR_test.s */; };
+		15B8E55212B48BD7002CE543 /* NOT_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD4B61172A88C0068FD7E /* NOT_test.s */; };
+		15B8E55312B48BD7002CE543 /* SLT_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD4B81172A8930068FD7E /* SLT_test.s */; };
+		15B8E55412B48BD7002CE543 /* SLTI_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD4BA1172A89A0068FD7E /* SLTI_test.s */; };
+		15B8E55512B48BD7002CE543 /* BEQ_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD4BC1172A8E60068FD7E /* BEQ_test.s */; };
+		15B8E55612B48BD7002CE543 /* BNE_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD4BE1172A8EE0068FD7E /* BNE_test.s */; };
+		15B8E55712B48BD7002CE543 /* BGT_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD4C01172A8FE0068FD7E /* BGT_test.s */; };
+		15B8E55812B48BD7002CE543 /* BGE_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD4C21172A9070068FD7E /* BGE_test.s */; };
+		15B8E55912B48BD7002CE543 /* BLT_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD4C41172A9150068FD7E /* BLT_test.s */; };
+		15B8E55A12B48BD7002CE543 /* BLE_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD4C61172A9240068FD7E /* BLE_test.s */; };
+		15B8E55B12B48BD7002CE543 /* JMP_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD2F511728A750068FD7E /* JMP_test.s */; };
+		15B8E55C12B48BD7002CE543 /* JMPR_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD2F611728A820068FD7E /* JMPR_test.s */; };
+		15B8E55D12B48BD7002CE543 /* IN_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD2F0117289BD0068FD7E /* IN_test.s */; };
+		15B8E55E12B48BD7002CE543 /* OUT_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD2F1117289CC0068FD7E /* OUT_test.s */; };
+		15B8E55F12B48BD7002CE543 /* NOP_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD2F2117289DF0068FD7E /* NOP_test.s */; };
+		15B8E56012B48BD7002CE543 /* HALT_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15BC9BC411547A9400A60C9C /* HALT_test.s */; };
+		15B8E56112B48BD7002CE543 /* SLL_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD2F311728A430068FD7E /* SLL_test.s */; };
+		15B8E56212B48BD7002CE543 /* SRL_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD2F411728A500068FD7E /* SRL_test.s */; };
+		15B8E56312B48BD7002CE543 /* ADD_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD27B117169450068FD7E /* ADD_test.s */; };
+		15B8E56412B48BD7002CE543 /* ADDI_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD29711719CB90068FD7E /* ADDI_test.s */; };
+		15B8E56512B48BD7002CE543 /* DIV_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD29411719C9A0068FD7E /* DIV_test.s */; };
+		15B8E56612B48BD7002CE543 /* MUL_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD29311719C850068FD7E /* MUL_test.s */; };
+		15B8E56712B48BD7002CE543 /* SUB_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD29911719DB60068FD7E /* SUB_test.s */; };
+		15B8E56812B48BD7002CE543 /* SUBI_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 159BD29611719CAF0068FD7E /* SUBI_test.s */; };
+		15B8E56912B48BD7002CE543 /* FIB_test.s in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB556C1218A669000E5CF7 /* FIB_test.s */; };
+		15B8E56A12B48BFD002CE543 /* LW_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB550812189E8C000E5CF7 /* LW_state.expected */; };
+		15B8E56B12B48BFD002CE543 /* LWI_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB550912189E8C000E5CF7 /* LWI_state.expected */; };
+		15B8E56C12B48BFD002CE543 /* SW_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB550A12189E8C000E5CF7 /* SW_state.expected */; };
+		15B8E56D12B48BFD002CE543 /* SWI_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB550B12189E8C000E5CF7 /* SWI_state.expected */; };
+		15B8E56E12B48BFD002CE543 /* AND_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB550012189D66000E5CF7 /* AND_state.expected */; };
+		15B8E56F12B48BFD002CE543 /* ANDI_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB550112189D66000E5CF7 /* ANDI_state.expected */; };
+		15B8E57012B48BFD002CE543 /* NOT_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB550212189D66000E5CF7 /* NOT_state.expected */; };
+		15B8E57112B48BFD002CE543 /* OR_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB550312189D66000E5CF7 /* OR_state.expected */; };
+		15B8E57212B48BFD002CE543 /* ORI_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB550412189D66000E5CF7 /* ORI_state.expected */; };
+		15B8E57312B48BFD002CE543 /* SLT_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB550512189D66000E5CF7 /* SLT_state.expected */; };
+		15B8E57412B48BFD002CE543 /* SLTI_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB550612189D66000E5CF7 /* SLTI_state.expected */; };
+		15B8E57512B48BFD002CE543 /* XOR_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB550712189D66000E5CF7 /* XOR_state.expected */; };
+		15B8E57612B48BFD002CE543 /* BEQ_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB550C12189ED3000E5CF7 /* BEQ_state.expected */; };
+		15B8E57712B48BFD002CE543 /* BNE_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB550F1218A06A000E5CF7 /* BNE_state.expected */; };
+		15B8E57812B48BFD002CE543 /* BGT_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB55121218A148000E5CF7 /* BGT_state.expected */; };
+		15B8E57912B48BFD002CE543 /* BGE_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB553C1218A1F5000E5CF7 /* BGE_state.expected */; };
+		15B8E57A12B48BFD002CE543 /* BLT_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB55431218A278000E5CF7 /* BLT_state.expected */; };
+		15B8E57B12B48BFD002CE543 /* BLE_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB554E1218A301000E5CF7 /* BLE_state.expected */; };
+		15B8E57C12B48BFD002CE543 /* JMP_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB54FC12189BFF000E5CF7 /* JMP_state.expected */; };
+		15B8E57D12B48BFD002CE543 /* JMPR_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB54FD12189BFF000E5CF7 /* JMPR_state.expected */; };
+		15B8E57E12B48BFD002CE543 /* HALT_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB54F612189BA0000E5CF7 /* HALT_state.expected */; };
+		15B8E57F12B48BFD002CE543 /* IN_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB54F712189BA0000E5CF7 /* IN_state.expected */; };
+		15B8E58012B48BFD002CE543 /* NOP_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB54F812189BA0000E5CF7 /* NOP_state.expected */; };
+		15B8E58112B48BFD002CE543 /* OUT_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB54F912189BA0000E5CF7 /* OUT_state.expected */; };
+		15B8E58212B48BFD002CE543 /* SLL_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB54F412189A78000E5CF7 /* SLL_state.expected */; };
+		15B8E58312B48BFD002CE543 /* SRL_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB54F512189A78000E5CF7 /* SRL_state.expected */; };
+		15B8E58412B48BFD002CE543 /* ADD_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 156DBBB01218977A008709BE /* ADD_state.expected */; };
+		15B8E58512B48BFD002CE543 /* ADDI_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB54E31218986F000E5CF7 /* ADDI_state.expected */; };
+		15B8E58612B48BFD002CE543 /* DIV_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB54E41218994B000E5CF7 /* DIV_state.expected */; };
+		15B8E58712B48BFD002CE543 /* MUL_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB54E51218994B000E5CF7 /* MUL_state.expected */; };
+		15B8E58812B48BFD002CE543 /* SUB_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB54E61218994B000E5CF7 /* SUB_state.expected */; };
+		15B8E58912B48BFD002CE543 /* SUBI_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB54E71218994B000E5CF7 /* SUBI_state.expected */; };
+		15B8E58A12B48BFD002CE543 /* FIB_state.expected in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15EB556E1218AC03000E5CF7 /* FIB_state.expected */; };
+		15B8E58B12B48D1D002CE543 /* vcassem in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 15C637B51093ADD5005DF9F4 /* vcassem */; };
+		15B8E58C12B48D20002CE543 /* virtualComputer in Copy Files Needed For Testing */ = {isa = PBXBuildFile; fileRef = 1578DBF5106EF90B00BF32A0 /* virtualComputer */; };
+		15C502101166C32E00820D26 /* DDArgumentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5020F1166C32E00820D26 /* DDArgumentManager.m */; };
+		15C502111166C32E00820D26 /* DDArgumentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5020F1166C32E00820D26 /* DDArgumentManager.m */; };
+		15C502711167C9E000820D26 /* DDUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C502701167C9E000820D26 /* DDUtility.m */; };
+		15C502721167C9E000820D26 /* DDUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C502701167C9E000820D26 /* DDUtility.m */; };
+		15C637A3109396D7005DF9F4 /* VCInstructionLoadWordDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C637A1109396D7005DF9F4 /* VCInstructionLoadWordDelegate.m */; };
+		15C637A7109396EE005DF9F4 /* VCInstructionStoreWordDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C637A5109396EE005DF9F4 /* VCInstructionStoreWordDelegate.m */; };
+		15CE5F4D10EAD076003C6975 /* vcassem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 15C637B51093ADD5005DF9F4 /* vcassem */; };
+		15CE5F5710EAD0D5003C6975 /* virtualComputer in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1578DBF5106EF90B00BF32A0 /* virtualComputer */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		153ED4B11227566E00C324B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1578DBF4106EF90B00BF32A0;
+			remoteInfo = virtualComputer;
+		};
+		153ED4B31227567200C324B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 15C637B41093ADD5005DF9F4;
+			remoteInfo = vcassem;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		15B8E54612B48AF8002CE543 /* Copy Files Needed For Testing */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "~/.virtual-computer-test-directory-delete-when-done";
+			dstSubfolderSpec = 0;
+			files = (
+				15B8E58C12B48D20002CE543 /* virtualComputer in Copy Files Needed For Testing */,
+				15B8E58B12B48D1D002CE543 /* vcassem in Copy Files Needed For Testing */,
+				15B8E56A12B48BFD002CE543 /* LW_state.expected in Copy Files Needed For Testing */,
+				15B8E56B12B48BFD002CE543 /* LWI_state.expected in Copy Files Needed For Testing */,
+				15B8E56C12B48BFD002CE543 /* SW_state.expected in Copy Files Needed For Testing */,
+				15B8E56D12B48BFD002CE543 /* SWI_state.expected in Copy Files Needed For Testing */,
+				15B8E56E12B48BFD002CE543 /* AND_state.expected in Copy Files Needed For Testing */,
+				15B8E56F12B48BFD002CE543 /* ANDI_state.expected in Copy Files Needed For Testing */,
+				15B8E57012B48BFD002CE543 /* NOT_state.expected in Copy Files Needed For Testing */,
+				15B8E57112B48BFD002CE543 /* OR_state.expected in Copy Files Needed For Testing */,
+				15B8E57212B48BFD002CE543 /* ORI_state.expected in Copy Files Needed For Testing */,
+				15B8E57312B48BFD002CE543 /* SLT_state.expected in Copy Files Needed For Testing */,
+				15B8E57412B48BFD002CE543 /* SLTI_state.expected in Copy Files Needed For Testing */,
+				15B8E57512B48BFD002CE543 /* XOR_state.expected in Copy Files Needed For Testing */,
+				15B8E57612B48BFD002CE543 /* BEQ_state.expected in Copy Files Needed For Testing */,
+				15B8E57712B48BFD002CE543 /* BNE_state.expected in Copy Files Needed For Testing */,
+				15B8E57812B48BFD002CE543 /* BGT_state.expected in Copy Files Needed For Testing */,
+				15B8E57912B48BFD002CE543 /* BGE_state.expected in Copy Files Needed For Testing */,
+				15B8E57A12B48BFD002CE543 /* BLT_state.expected in Copy Files Needed For Testing */,
+				15B8E57B12B48BFD002CE543 /* BLE_state.expected in Copy Files Needed For Testing */,
+				15B8E57C12B48BFD002CE543 /* JMP_state.expected in Copy Files Needed For Testing */,
+				15B8E57D12B48BFD002CE543 /* JMPR_state.expected in Copy Files Needed For Testing */,
+				15B8E57E12B48BFD002CE543 /* HALT_state.expected in Copy Files Needed For Testing */,
+				15B8E57F12B48BFD002CE543 /* IN_state.expected in Copy Files Needed For Testing */,
+				15B8E58012B48BFD002CE543 /* NOP_state.expected in Copy Files Needed For Testing */,
+				15B8E58112B48BFD002CE543 /* OUT_state.expected in Copy Files Needed For Testing */,
+				15B8E58212B48BFD002CE543 /* SLL_state.expected in Copy Files Needed For Testing */,
+				15B8E58312B48BFD002CE543 /* SRL_state.expected in Copy Files Needed For Testing */,
+				15B8E58412B48BFD002CE543 /* ADD_state.expected in Copy Files Needed For Testing */,
+				15B8E58512B48BFD002CE543 /* ADDI_state.expected in Copy Files Needed For Testing */,
+				15B8E58612B48BFD002CE543 /* DIV_state.expected in Copy Files Needed For Testing */,
+				15B8E58712B48BFD002CE543 /* MUL_state.expected in Copy Files Needed For Testing */,
+				15B8E58812B48BFD002CE543 /* SUB_state.expected in Copy Files Needed For Testing */,
+				15B8E58912B48BFD002CE543 /* SUBI_state.expected in Copy Files Needed For Testing */,
+				15B8E58A12B48BFD002CE543 /* FIB_state.expected in Copy Files Needed For Testing */,
+				15B8E54912B48BD7002CE543 /* LW_test.s in Copy Files Needed For Testing */,
+				15B8E54A12B48BD7002CE543 /* LWI_test.s in Copy Files Needed For Testing */,
+				15B8E54B12B48BD7002CE543 /* SW_test.s in Copy Files Needed For Testing */,
+				15B8E54C12B48BD7002CE543 /* SWI_test.s in Copy Files Needed For Testing */,
+				15B8E54D12B48BD7002CE543 /* AND_test.s in Copy Files Needed For Testing */,
+				15B8E54E12B48BD7002CE543 /* ANDI_test.s in Copy Files Needed For Testing */,
+				15B8E54F12B48BD7002CE543 /* OR_test.s in Copy Files Needed For Testing */,
+				15B8E55012B48BD7002CE543 /* ORI_test.s in Copy Files Needed For Testing */,
+				15B8E55112B48BD7002CE543 /* XOR_test.s in Copy Files Needed For Testing */,
+				15B8E55212B48BD7002CE543 /* NOT_test.s in Copy Files Needed For Testing */,
+				15B8E55312B48BD7002CE543 /* SLT_test.s in Copy Files Needed For Testing */,
+				15B8E55412B48BD7002CE543 /* SLTI_test.s in Copy Files Needed For Testing */,
+				15B8E55512B48BD7002CE543 /* BEQ_test.s in Copy Files Needed For Testing */,
+				15B8E55612B48BD7002CE543 /* BNE_test.s in Copy Files Needed For Testing */,
+				15B8E55712B48BD7002CE543 /* BGT_test.s in Copy Files Needed For Testing */,
+				15B8E55812B48BD7002CE543 /* BGE_test.s in Copy Files Needed For Testing */,
+				15B8E55912B48BD7002CE543 /* BLT_test.s in Copy Files Needed For Testing */,
+				15B8E55A12B48BD7002CE543 /* BLE_test.s in Copy Files Needed For Testing */,
+				15B8E55B12B48BD7002CE543 /* JMP_test.s in Copy Files Needed For Testing */,
+				15B8E55C12B48BD7002CE543 /* JMPR_test.s in Copy Files Needed For Testing */,
+				15B8E55D12B48BD7002CE543 /* IN_test.s in Copy Files Needed For Testing */,
+				15B8E55E12B48BD7002CE543 /* OUT_test.s in Copy Files Needed For Testing */,
+				15B8E55F12B48BD7002CE543 /* NOP_test.s in Copy Files Needed For Testing */,
+				15B8E56012B48BD7002CE543 /* HALT_test.s in Copy Files Needed For Testing */,
+				15B8E56112B48BD7002CE543 /* SLL_test.s in Copy Files Needed For Testing */,
+				15B8E56212B48BD7002CE543 /* SRL_test.s in Copy Files Needed For Testing */,
+				15B8E56312B48BD7002CE543 /* ADD_test.s in Copy Files Needed For Testing */,
+				15B8E56412B48BD7002CE543 /* ADDI_test.s in Copy Files Needed For Testing */,
+				15B8E56512B48BD7002CE543 /* DIV_test.s in Copy Files Needed For Testing */,
+				15B8E56612B48BD7002CE543 /* MUL_test.s in Copy Files Needed For Testing */,
+				15B8E56712B48BD7002CE543 /* SUB_test.s in Copy Files Needed For Testing */,
+				15B8E56812B48BD7002CE543 /* SUBI_test.s in Copy Files Needed For Testing */,
+				15B8E56912B48BD7002CE543 /* FIB_test.s in Copy Files Needed For Testing */,
+			);
+			name = "Copy Files Needed For Testing";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15CE5F5110EAD07A003C6975 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "~/Bin/";
+			dstSubfolderSpec = 0;
+			files = (
+				15CE5F4D10EAD076003C6975 /* vcassem in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15CE5F5C10EAD0DF003C6975 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "~/Bin/";
+			dstSubfolderSpec = 0;
+			files = (
+				15CE5F5710EAD0D5003C6975 /* virtualComputer in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		151B15B5102513F7007AB3A0 /* VCVirtualComputer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCVirtualComputer.h; sourceTree = "<group>"; };
+		151B15B6102513F7007AB3A0 /* VCVirtualComputer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCVirtualComputer.m; sourceTree = "<group>"; };
+		151B15C01025141E007AB3A0 /* VCRegisters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCRegisters.h; sourceTree = "<group>"; };
+		151B15C11025141E007AB3A0 /* VCRegisters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCRegisters.m; sourceTree = "<group>"; };
+		151B15D910251497007AB3A0 /* VCMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCMemory.h; sourceTree = "<group>"; };
+		151B15DA10251497007AB3A0 /* VCMemory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCMemory.m; sourceTree = "<group>"; };
+		151B4722106EC67700B4C754 /* VCInstructionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionDelegate.h; sourceTree = "<group>"; };
+		151B4804106ED8B400B4C754 /* VCInstructionNopDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionNopDelegate.h; sourceTree = "<group>"; };
+		151B4805106ED8B400B4C754 /* VCInstructionNopDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionNopDelegate.m; sourceTree = "<group>"; };
+		151B480B106EDA1200B4C754 /* VCInstructionDelegateCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionDelegateCache.h; sourceTree = "<group>"; };
+		151B480C106EDA1200B4C754 /* VCInstructionDelegateCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionDelegateCache.m; sourceTree = "<group>"; };
+		152C61311025033F00FC2363 /* VCInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstruction.h; sourceTree = "<group>"; };
+		152C61321025033F00FC2363 /* VCInstruction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstruction.m; sourceTree = "<group>"; };
+		152C61581025089600FC2363 /* VCInstructionAddDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionAddDelegate.h; sourceTree = "<group>"; };
+		152C61591025089600FC2363 /* VCInstructionAddDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionAddDelegate.m; sourceTree = "<group>"; };
+		152C615C1025089600FC2363 /* VCInstructionSubtractDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionSubtractDelegate.h; sourceTree = "<group>"; };
+		152C615D1025089600FC2363 /* VCInstructionSubtractDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionSubtractDelegate.m; sourceTree = "<group>"; };
+		152C615E1025089600FC2363 /* VCInstructionSubtractImmediateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionSubtractImmediateDelegate.h; sourceTree = "<group>"; };
+		152C615F1025089600FC2363 /* VCInstructionSubtractImmediateDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionSubtractImmediateDelegate.m; sourceTree = "<group>"; };
+		152C61601025089600FC2363 /* VCInstructionAddImmediateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionAddImmediateDelegate.h; sourceTree = "<group>"; };
+		152C61611025089600FC2363 /* VCInstructionAddImmediateDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionAddImmediateDelegate.m; sourceTree = "<group>"; };
+		152C61641025089600FC2363 /* VCInstructionMultiplyDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionMultiplyDelegate.h; sourceTree = "<group>"; };
+		152C61651025089600FC2363 /* VCInstructionMultiplyDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionMultiplyDelegate.m; sourceTree = "<group>"; };
+		152C61661025089600FC2363 /* VCInstructionDivideDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionDivideDelegate.h; sourceTree = "<group>"; };
+		152C61671025089600FC2363 /* VCInstructionDivideDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionDivideDelegate.m; sourceTree = "<group>"; };
+		152C61A610250A7100FC2363 /* VCInstructionLoadWordImmediateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionLoadWordImmediateDelegate.h; sourceTree = "<group>"; };
+		152C61A710250A7100FC2363 /* VCInstructionLoadWordImmediateDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionLoadWordImmediateDelegate.m; sourceTree = "<group>"; };
+		152C61AA10250A7100FC2363 /* VCInstructionStoreWordImmediateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionStoreWordImmediateDelegate.h; sourceTree = "<group>"; };
+		152C61AB10250A7100FC2363 /* VCInstructionStoreWordImmediateDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionStoreWordImmediateDelegate.m; sourceTree = "<group>"; };
+		152C61B610250B9F00FC2363 /* VCInstructionAndDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionAndDelegate.h; sourceTree = "<group>"; };
+		152C61B710250B9F00FC2363 /* VCInstructionAndDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionAndDelegate.m; sourceTree = "<group>"; };
+		152C61B810250B9F00FC2363 /* VCInstructionAndImmediateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionAndImmediateDelegate.h; sourceTree = "<group>"; };
+		152C61B910250B9F00FC2363 /* VCInstructionAndImmediateDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionAndImmediateDelegate.m; sourceTree = "<group>"; };
+		152C61BA10250B9F00FC2363 /* VCInstructionOrDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionOrDelegate.h; sourceTree = "<group>"; };
+		152C61BB10250B9F00FC2363 /* VCInstructionOrDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionOrDelegate.m; sourceTree = "<group>"; };
+		152C61BC10250B9F00FC2363 /* VCInstructionOrImmediateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionOrImmediateDelegate.h; sourceTree = "<group>"; };
+		152C61BD10250B9F00FC2363 /* VCInstructionOrImmediateDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionOrImmediateDelegate.m; sourceTree = "<group>"; };
+		152C61BE10250B9F00FC2363 /* VCInstructionXorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionXorDelegate.h; sourceTree = "<group>"; };
+		152C61BF10250B9F00FC2363 /* VCInstructionXorDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionXorDelegate.m; sourceTree = "<group>"; };
+		152C61C010250B9F00FC2363 /* VCInstructionNotDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionNotDelegate.h; sourceTree = "<group>"; };
+		152C61C110250B9F00FC2363 /* VCInstructionNotDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionNotDelegate.m; sourceTree = "<group>"; };
+		152C61C210250B9F00FC2363 /* VCInstructionSetOnLessThanDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionSetOnLessThanDelegate.h; sourceTree = "<group>"; };
+		152C61C310250B9F00FC2363 /* VCInstructionSetOnLessThanDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionSetOnLessThanDelegate.m; sourceTree = "<group>"; };
+		152C61C410250B9F00FC2363 /* VCInstructionSetOnLessThanImmediateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionSetOnLessThanImmediateDelegate.h; sourceTree = "<group>"; };
+		152C61C510250B9F00FC2363 /* VCInstructionSetOnLessThanImmediateDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionSetOnLessThanImmediateDelegate.m; sourceTree = "<group>"; };
+		152C61E010250E1A00FC2363 /* VCInstructionJumpDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionJumpDelegate.h; sourceTree = "<group>"; };
+		152C61E110250E1A00FC2363 /* VCInstructionJumpDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionJumpDelegate.m; sourceTree = "<group>"; };
+		152C61E210250E1A00FC2363 /* VCInstructionJumpRegisterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionJumpRegisterDelegate.h; sourceTree = "<group>"; };
+		152C61E310250E1A00FC2363 /* VCInstructionJumpRegisterDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionJumpRegisterDelegate.m; sourceTree = "<group>"; };
+		152C61E610250E2700FC2363 /* VCInstructionBranchOnEqualDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionBranchOnEqualDelegate.h; sourceTree = "<group>"; };
+		152C61E710250E2700FC2363 /* VCInstructionBranchOnEqualDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionBranchOnEqualDelegate.m; sourceTree = "<group>"; };
+		152C61E810250E2700FC2363 /* VCInstructionBranchOnNotEqualDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionBranchOnNotEqualDelegate.h; sourceTree = "<group>"; };
+		152C61E910250E2700FC2363 /* VCInstructionBranchOnNotEqualDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionBranchOnNotEqualDelegate.m; sourceTree = "<group>"; };
+		152C61ED10250E7000FC2363 /* VCInstructionShiftLeftLogicalDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionShiftLeftLogicalDelegate.h; sourceTree = "<group>"; };
+		152C61EE10250E7000FC2363 /* VCInstructionShiftLeftLogicalDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionShiftLeftLogicalDelegate.m; sourceTree = "<group>"; };
+		152C61EF10250E7000FC2363 /* VCInstructionShiftRightLogicalDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionShiftRightLogicalDelegate.h; sourceTree = "<group>"; };
+		152C61F010250E7000FC2363 /* VCInstructionShiftRightLogicalDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionShiftRightLogicalDelegate.m; sourceTree = "<group>"; };
+		152C62AF1025106E00FC2363 /* instructionReference.txt */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = text; path = instructionReference.txt; sourceTree = "<group>"; tabWidth = 4; };
+		1557884312B5EF94003EA807 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		156DBB3D121796BD008709BE /* instructionTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = instructionTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		156DBB49121799E1008709BE /* instructionTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = instructionTestMain.m; sourceTree = "<group>"; };
+		156DBB531218895C008709BE /* TestRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestRunner.h; sourceTree = "<group>"; };
+		156DBB541218895C008709BE /* TestRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestRunner.m; sourceTree = "<group>"; };
+		156DBBB01218977A008709BE /* ADD_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ADD_state.expected; sourceTree = "<group>"; };
+		1578DBF5106EF90B00BF32A0 /* virtualComputer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = virtualComputer; sourceTree = BUILT_PRODUCTS_DIR; };
+		1578DC1C106EFABA00BF32A0 /* commandLineMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commandLineMain.m; sourceTree = "<group>"; };
+		157D36381093B9C200B21488 /* vcassemMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vcassemMain.m; sourceTree = "<group>"; };
+		157D364A1093BD7C00B21488 /* VCAssemblerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCAssemblerHelper.h; sourceTree = "<group>"; };
+		157D364B1093BD7C00B21488 /* VCAssemblerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCAssemblerHelper.m; sourceTree = "<group>"; };
+		159BD27B117169450068FD7E /* ADD_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = ADD_test.s; sourceTree = "<group>"; };
+		159BD29311719C850068FD7E /* MUL_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = MUL_test.s; sourceTree = "<group>"; };
+		159BD29411719C9A0068FD7E /* DIV_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = DIV_test.s; sourceTree = "<group>"; };
+		159BD29611719CAF0068FD7E /* SUBI_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = SUBI_test.s; sourceTree = "<group>"; };
+		159BD29711719CB90068FD7E /* ADDI_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = ADDI_test.s; sourceTree = "<group>"; };
+		159BD29911719DB60068FD7E /* SUB_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = SUB_test.s; sourceTree = "<group>"; };
+		159BD2F0117289BD0068FD7E /* IN_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = IN_test.s; sourceTree = "<group>"; };
+		159BD2F1117289CC0068FD7E /* OUT_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = OUT_test.s; sourceTree = "<group>"; };
+		159BD2F2117289DF0068FD7E /* NOP_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = NOP_test.s; sourceTree = "<group>"; };
+		159BD2F311728A430068FD7E /* SLL_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = SLL_test.s; sourceTree = "<group>"; };
+		159BD2F411728A500068FD7E /* SRL_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = SRL_test.s; sourceTree = "<group>"; };
+		159BD2F511728A750068FD7E /* JMP_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = JMP_test.s; sourceTree = "<group>"; };
+		159BD2F611728A820068FD7E /* JMPR_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = JMPR_test.s; sourceTree = "<group>"; };
+		159BD4A81172A7ED0068FD7E /* LW_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = LW_test.s; sourceTree = "<group>"; };
+		159BD4A91172A7FB0068FD7E /* LWI_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = LWI_test.s; sourceTree = "<group>"; };
+		159BD4AA1172A8090068FD7E /* SW_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = SW_test.s; sourceTree = "<group>"; };
+		159BD4AB1172A8160068FD7E /* SWI_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = SWI_test.s; sourceTree = "<group>"; };
+		159BD4AC1172A8360068FD7E /* AND_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = AND_test.s; sourceTree = "<group>"; };
+		159BD4AE1172A84B0068FD7E /* ANDI_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = ANDI_test.s; sourceTree = "<group>"; };
+		159BD4B01172A8530068FD7E /* OR_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = OR_test.s; sourceTree = "<group>"; };
+		159BD4B21172A85E0068FD7E /* ORI_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = ORI_test.s; sourceTree = "<group>"; };
+		159BD4B41172A8840068FD7E /* XOR_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = XOR_test.s; sourceTree = "<group>"; };
+		159BD4B61172A88C0068FD7E /* NOT_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = NOT_test.s; sourceTree = "<group>"; };
+		159BD4B81172A8930068FD7E /* SLT_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = SLT_test.s; sourceTree = "<group>"; };
+		159BD4BA1172A89A0068FD7E /* SLTI_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = SLTI_test.s; sourceTree = "<group>"; };
+		159BD4BC1172A8E60068FD7E /* BEQ_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = BEQ_test.s; sourceTree = "<group>"; };
+		159BD4BE1172A8EE0068FD7E /* BNE_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = BNE_test.s; sourceTree = "<group>"; };
+		159BD4C01172A8FE0068FD7E /* BGT_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = BGT_test.s; sourceTree = "<group>"; };
+		159BD4C21172A9070068FD7E /* BGE_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = BGE_test.s; sourceTree = "<group>"; };
+		159BD4C41172A9150068FD7E /* BLT_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = BLT_test.s; sourceTree = "<group>"; };
+		159BD4C61172A9240068FD7E /* BLE_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = BLE_test.s; sourceTree = "<group>"; };
+		15B8E68512B5ED1D002CE543 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		15BC9BC411547A9400A60C9C /* HALT_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = HALT_test.s; sourceTree = "<group>"; };
+		15C5020E1166C32E00820D26 /* DDArgumentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDArgumentManager.h; sourceTree = "<group>"; };
+		15C5020F1166C32E00820D26 /* DDArgumentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDArgumentManager.m; sourceTree = "<group>"; };
+		15C5026F1167C9E000820D26 /* DDUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDUtility.h; sourceTree = "<group>"; };
+		15C502701167C9E000820D26 /* DDUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDUtility.m; sourceTree = "<group>"; };
+		15C637A0109396D7005DF9F4 /* VCInstructionLoadWordDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionLoadWordDelegate.h; sourceTree = "<group>"; };
+		15C637A1109396D7005DF9F4 /* VCInstructionLoadWordDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionLoadWordDelegate.m; sourceTree = "<group>"; };
+		15C637A4109396EE005DF9F4 /* VCInstructionStoreWordDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionStoreWordDelegate.h; sourceTree = "<group>"; };
+		15C637A5109396EE005DF9F4 /* VCInstructionStoreWordDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionStoreWordDelegate.m; sourceTree = "<group>"; };
+		15C637B51093ADD5005DF9F4 /* vcassem */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = vcassem; sourceTree = BUILT_PRODUCTS_DIR; };
+		15D5C64F10262E82005B8CAE /* VCInstructionInputDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionInputDelegate.h; sourceTree = "<group>"; };
+		15D5C65010262E82005B8CAE /* VCInstructionInputDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionInputDelegate.m; sourceTree = "<group>"; };
+		15D5C65210262E95005B8CAE /* VCInstructionOutputDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionOutputDelegate.h; sourceTree = "<group>"; };
+		15D5C65310262E95005B8CAE /* VCInstructionOutputDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionOutputDelegate.m; sourceTree = "<group>"; };
+		15D5C65510262EA1005B8CAE /* VCInstructionHaltDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionHaltDelegate.h; sourceTree = "<group>"; };
+		15D5C65610262EA1005B8CAE /* VCInstructionHaltDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionHaltDelegate.m; sourceTree = "<group>"; };
+		15D5C65810262ED4005B8CAE /* VCInstructionBranchGreaterThanDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionBranchGreaterThanDelegate.h; sourceTree = "<group>"; };
+		15D5C65910262ED4005B8CAE /* VCInstructionBranchGreaterThanDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionBranchGreaterThanDelegate.m; sourceTree = "<group>"; };
+		15D5C65B10262EEB005B8CAE /* VCInstructionBranchGreaterEqualDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionBranchGreaterEqualDelegate.h; sourceTree = "<group>"; };
+		15D5C65C10262EEB005B8CAE /* VCInstructionBranchGreaterEqualDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionBranchGreaterEqualDelegate.m; sourceTree = "<group>"; };
+		15D5C65E10262F05005B8CAE /* VCInstructionBranchLessThanDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionBranchLessThanDelegate.h; sourceTree = "<group>"; };
+		15D5C65F10262F05005B8CAE /* VCInstructionBranchLessThanDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionBranchLessThanDelegate.m; sourceTree = "<group>"; };
+		15D5C66110262F14005B8CAE /* VCInstructionBranchLessEqualDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionBranchLessEqualDelegate.h; sourceTree = "<group>"; };
+		15D5C66210262F14005B8CAE /* VCInstructionBranchLessEqualDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionBranchLessEqualDelegate.m; sourceTree = "<group>"; };
+		15EB54E31218986F000E5CF7 /* ADDI_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ADDI_state.expected; sourceTree = "<group>"; };
+		15EB54E41218994B000E5CF7 /* DIV_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DIV_state.expected; sourceTree = "<group>"; };
+		15EB54E51218994B000E5CF7 /* MUL_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MUL_state.expected; sourceTree = "<group>"; };
+		15EB54E61218994B000E5CF7 /* SUB_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SUB_state.expected; sourceTree = "<group>"; };
+		15EB54E71218994B000E5CF7 /* SUBI_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SUBI_state.expected; sourceTree = "<group>"; };
+		15EB54F412189A78000E5CF7 /* SLL_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SLL_state.expected; sourceTree = "<group>"; };
+		15EB54F512189A78000E5CF7 /* SRL_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SRL_state.expected; sourceTree = "<group>"; };
+		15EB54F612189BA0000E5CF7 /* HALT_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = HALT_state.expected; sourceTree = "<group>"; };
+		15EB54F712189BA0000E5CF7 /* IN_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = IN_state.expected; sourceTree = "<group>"; };
+		15EB54F812189BA0000E5CF7 /* NOP_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NOP_state.expected; sourceTree = "<group>"; };
+		15EB54F912189BA0000E5CF7 /* OUT_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = OUT_state.expected; sourceTree = "<group>"; };
+		15EB54FC12189BFF000E5CF7 /* JMP_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = JMP_state.expected; sourceTree = "<group>"; };
+		15EB54FD12189BFF000E5CF7 /* JMPR_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = JMPR_state.expected; sourceTree = "<group>"; };
+		15EB550012189D66000E5CF7 /* AND_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AND_state.expected; sourceTree = "<group>"; };
+		15EB550112189D66000E5CF7 /* ANDI_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ANDI_state.expected; sourceTree = "<group>"; };
+		15EB550212189D66000E5CF7 /* NOT_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NOT_state.expected; sourceTree = "<group>"; };
+		15EB550312189D66000E5CF7 /* OR_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = OR_state.expected; sourceTree = "<group>"; };
+		15EB550412189D66000E5CF7 /* ORI_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ORI_state.expected; sourceTree = "<group>"; };
+		15EB550512189D66000E5CF7 /* SLT_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SLT_state.expected; sourceTree = "<group>"; };
+		15EB550612189D66000E5CF7 /* SLTI_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SLTI_state.expected; sourceTree = "<group>"; };
+		15EB550712189D66000E5CF7 /* XOR_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = XOR_state.expected; sourceTree = "<group>"; };
+		15EB550812189E8C000E5CF7 /* LW_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LW_state.expected; sourceTree = "<group>"; };
+		15EB550912189E8C000E5CF7 /* LWI_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LWI_state.expected; sourceTree = "<group>"; };
+		15EB550A12189E8C000E5CF7 /* SW_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SW_state.expected; sourceTree = "<group>"; };
+		15EB550B12189E8C000E5CF7 /* SWI_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SWI_state.expected; sourceTree = "<group>"; };
+		15EB550C12189ED3000E5CF7 /* BEQ_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BEQ_state.expected; sourceTree = "<group>"; };
+		15EB550F1218A06A000E5CF7 /* BNE_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BNE_state.expected; sourceTree = "<group>"; };
+		15EB55121218A148000E5CF7 /* BGT_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BGT_state.expected; sourceTree = "<group>"; };
+		15EB553C1218A1F5000E5CF7 /* BGE_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BGE_state.expected; sourceTree = "<group>"; };
+		15EB55431218A278000E5CF7 /* BLT_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BLT_state.expected; sourceTree = "<group>"; };
+		15EB554E1218A301000E5CF7 /* BLE_state.expected */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BLE_state.expected; sourceTree = "<group>"; };
+		15EB556C1218A669000E5CF7 /* FIB_test.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = FIB_test.s; sourceTree = "<group>"; };
+		15EB556E1218AC03000E5CF7 /* FIB_state.expected */ = {isa = PBXFileReference; explicitFileType = text.plist; fileEncoding = 4; path = FIB_state.expected; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		32CA4F630368D1EE00C91783 /* Virtual Computer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Virtual Computer_Prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		156DBB3B121796BD008709BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1578DBF3106EF90B00BF32A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1578DBFA106EF93B00BF32A0 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15C637B31093ADD5005DF9F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				152C6143102506A300FC2363 /* Instructions */,
+				151B15B5102513F7007AB3A0 /* VCVirtualComputer.h */,
+				151B15B6102513F7007AB3A0 /* VCVirtualComputer.m */,
+				151B15C01025141E007AB3A0 /* VCRegisters.h */,
+				151B15C11025141E007AB3A0 /* VCRegisters.m */,
+				151B15D910251497007AB3A0 /* VCMemory.h */,
+				151B15DA10251497007AB3A0 /* VCMemory.m */,
+				151B480B106EDA1200B4C754 /* VCInstructionDelegateCache.h */,
+				151B480C106EDA1200B4C754 /* VCInstructionDelegateCache.m */,
+				157D364A1093BD7C00B21488 /* VCAssemblerHelper.h */,
+				157D364B1093BD7C00B21488 /* VCAssemblerHelper.m */,
+				15C5020E1166C32E00820D26 /* DDArgumentManager.h */,
+				15C5020F1166C32E00820D26 /* DDArgumentManager.m */,
+				15C5026F1167C9E000820D26 /* DDUtility.h */,
+				15C502701167C9E000820D26 /* DDUtility.m */,
+				156DBB531218895C008709BE /* TestRunner.h */,
+				156DBB541218895C008709BE /* TestRunner.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		152C6143102506A300FC2363 /* Instructions */ = {
+			isa = PBXGroup;
+			children = (
+				15D5C64E10262E14005B8CAE /* Misc */,
+				152C61EC10250E3C00FC2363 /* Shift */,
+				152C61DF10250DF000FC2363 /* Jump */,
+				152C61DE10250DD600FC2363 /* Branch */,
+				152C61B310250B7700FC2363 /* Logical */,
+				152C6174102509FF00FC2363 /* Data Transfer */,
+				152C61501025083B00FC2363 /* Arithmetic */,
+				152C61311025033F00FC2363 /* VCInstruction.h */,
+				152C61321025033F00FC2363 /* VCInstruction.m */,
+			);
+			path = Instructions;
+			sourceTree = "<group>";
+		};
+		152C614F1025077100FC2363 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				151B4722106EC67700B4C754 /* VCInstructionDelegate.h */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		152C61501025083B00FC2363 /* Arithmetic */ = {
+			isa = PBXGroup;
+			children = (
+				152C61581025089600FC2363 /* VCInstructionAddDelegate.h */,
+				152C61591025089600FC2363 /* VCInstructionAddDelegate.m */,
+				152C615C1025089600FC2363 /* VCInstructionSubtractDelegate.h */,
+				152C615D1025089600FC2363 /* VCInstructionSubtractDelegate.m */,
+				152C615E1025089600FC2363 /* VCInstructionSubtractImmediateDelegate.h */,
+				152C615F1025089600FC2363 /* VCInstructionSubtractImmediateDelegate.m */,
+				152C61601025089600FC2363 /* VCInstructionAddImmediateDelegate.h */,
+				152C61611025089600FC2363 /* VCInstructionAddImmediateDelegate.m */,
+				152C61641025089600FC2363 /* VCInstructionMultiplyDelegate.h */,
+				152C61651025089600FC2363 /* VCInstructionMultiplyDelegate.m */,
+				152C61661025089600FC2363 /* VCInstructionDivideDelegate.h */,
+				152C61671025089600FC2363 /* VCInstructionDivideDelegate.m */,
+			);
+			path = Arithmetic;
+			sourceTree = "<group>";
+		};
+		152C6174102509FF00FC2363 /* Data Transfer */ = {
+			isa = PBXGroup;
+			children = (
+				152C61A610250A7100FC2363 /* VCInstructionLoadWordImmediateDelegate.h */,
+				152C61A710250A7100FC2363 /* VCInstructionLoadWordImmediateDelegate.m */,
+				152C61AA10250A7100FC2363 /* VCInstructionStoreWordImmediateDelegate.h */,
+				152C61AB10250A7100FC2363 /* VCInstructionStoreWordImmediateDelegate.m */,
+				15C637A0109396D7005DF9F4 /* VCInstructionLoadWordDelegate.h */,
+				15C637A1109396D7005DF9F4 /* VCInstructionLoadWordDelegate.m */,
+				15C637A4109396EE005DF9F4 /* VCInstructionStoreWordDelegate.h */,
+				15C637A5109396EE005DF9F4 /* VCInstructionStoreWordDelegate.m */,
+			);
+			path = "Data Transfer";
+			sourceTree = "<group>";
+		};
+		152C61B310250B7700FC2363 /* Logical */ = {
+			isa = PBXGroup;
+			children = (
+				152C61B610250B9F00FC2363 /* VCInstructionAndDelegate.h */,
+				152C61B710250B9F00FC2363 /* VCInstructionAndDelegate.m */,
+				152C61B810250B9F00FC2363 /* VCInstructionAndImmediateDelegate.h */,
+				152C61B910250B9F00FC2363 /* VCInstructionAndImmediateDelegate.m */,
+				152C61BA10250B9F00FC2363 /* VCInstructionOrDelegate.h */,
+				152C61BB10250B9F00FC2363 /* VCInstructionOrDelegate.m */,
+				152C61BC10250B9F00FC2363 /* VCInstructionOrImmediateDelegate.h */,
+				152C61BD10250B9F00FC2363 /* VCInstructionOrImmediateDelegate.m */,
+				152C61BE10250B9F00FC2363 /* VCInstructionXorDelegate.h */,
+				152C61BF10250B9F00FC2363 /* VCInstructionXorDelegate.m */,
+				152C61C010250B9F00FC2363 /* VCInstructionNotDelegate.h */,
+				152C61C110250B9F00FC2363 /* VCInstructionNotDelegate.m */,
+				152C61C210250B9F00FC2363 /* VCInstructionSetOnLessThanDelegate.h */,
+				152C61C310250B9F00FC2363 /* VCInstructionSetOnLessThanDelegate.m */,
+				152C61C410250B9F00FC2363 /* VCInstructionSetOnLessThanImmediateDelegate.h */,
+				152C61C510250B9F00FC2363 /* VCInstructionSetOnLessThanImmediateDelegate.m */,
+			);
+			path = Logical;
+			sourceTree = "<group>";
+		};
+		152C61DE10250DD600FC2363 /* Branch */ = {
+			isa = PBXGroup;
+			children = (
+				152C61E610250E2700FC2363 /* VCInstructionBranchOnEqualDelegate.h */,
+				152C61E710250E2700FC2363 /* VCInstructionBranchOnEqualDelegate.m */,
+				152C61E810250E2700FC2363 /* VCInstructionBranchOnNotEqualDelegate.h */,
+				152C61E910250E2700FC2363 /* VCInstructionBranchOnNotEqualDelegate.m */,
+				15D5C65810262ED4005B8CAE /* VCInstructionBranchGreaterThanDelegate.h */,
+				15D5C65910262ED4005B8CAE /* VCInstructionBranchGreaterThanDelegate.m */,
+				15D5C65B10262EEB005B8CAE /* VCInstructionBranchGreaterEqualDelegate.h */,
+				15D5C65C10262EEB005B8CAE /* VCInstructionBranchGreaterEqualDelegate.m */,
+				15D5C65E10262F05005B8CAE /* VCInstructionBranchLessThanDelegate.h */,
+				15D5C65F10262F05005B8CAE /* VCInstructionBranchLessThanDelegate.m */,
+				15D5C66110262F14005B8CAE /* VCInstructionBranchLessEqualDelegate.h */,
+				15D5C66210262F14005B8CAE /* VCInstructionBranchLessEqualDelegate.m */,
+			);
+			path = Branch;
+			sourceTree = "<group>";
+		};
+		152C61DF10250DF000FC2363 /* Jump */ = {
+			isa = PBXGroup;
+			children = (
+				152C61E010250E1A00FC2363 /* VCInstructionJumpDelegate.h */,
+				152C61E110250E1A00FC2363 /* VCInstructionJumpDelegate.m */,
+				152C61E210250E1A00FC2363 /* VCInstructionJumpRegisterDelegate.h */,
+				152C61E310250E1A00FC2363 /* VCInstructionJumpRegisterDelegate.m */,
+			);
+			path = Jump;
+			sourceTree = "<group>";
+		};
+		152C61EC10250E3C00FC2363 /* Shift */ = {
+			isa = PBXGroup;
+			children = (
+				152C61ED10250E7000FC2363 /* VCInstructionShiftLeftLogicalDelegate.h */,
+				152C61EE10250E7000FC2363 /* VCInstructionShiftLeftLogicalDelegate.m */,
+				152C61EF10250E7000FC2363 /* VCInstructionShiftRightLogicalDelegate.h */,
+				152C61F010250E7000FC2363 /* VCInstructionShiftRightLogicalDelegate.m */,
+			);
+			path = Shift;
+			sourceTree = "<group>";
+		};
+		1534B5141249BB42001FB8E2 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				152C614F1025077100FC2363 /* Protocols */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		156DBBA612189666008709BE /* Expected Test Results */ = {
+			isa = PBXGroup;
+			children = (
+				156DBBA712189675008709BE /* Data Transfer */,
+				156DBBA81218967C008709BE /* Logical */,
+				156DBBA912189681008709BE /* Branch */,
+				156DBBAA12189689008709BE /* Jump */,
+				156DBBAB1218968F008709BE /* Misc */,
+				156DBBAC12189695008709BE /* Shift */,
+				156DBBAD1218969A008709BE /* Arithmetic */,
+				15EB556E1218AC03000E5CF7 /* FIB_state.expected */,
+			);
+			path = "Expected Test Results";
+			sourceTree = "<group>";
+		};
+		156DBBA712189675008709BE /* Data Transfer */ = {
+			isa = PBXGroup;
+			children = (
+				15EB550812189E8C000E5CF7 /* LW_state.expected */,
+				15EB550912189E8C000E5CF7 /* LWI_state.expected */,
+				15EB550A12189E8C000E5CF7 /* SW_state.expected */,
+				15EB550B12189E8C000E5CF7 /* SWI_state.expected */,
+			);
+			name = "Data Transfer";
+			sourceTree = "<group>";
+		};
+		156DBBA81218967C008709BE /* Logical */ = {
+			isa = PBXGroup;
+			children = (
+				15EB550012189D66000E5CF7 /* AND_state.expected */,
+				15EB550112189D66000E5CF7 /* ANDI_state.expected */,
+				15EB550212189D66000E5CF7 /* NOT_state.expected */,
+				15EB550312189D66000E5CF7 /* OR_state.expected */,
+				15EB550412189D66000E5CF7 /* ORI_state.expected */,
+				15EB550512189D66000E5CF7 /* SLT_state.expected */,
+				15EB550612189D66000E5CF7 /* SLTI_state.expected */,
+				15EB550712189D66000E5CF7 /* XOR_state.expected */,
+			);
+			name = Logical;
+			sourceTree = "<group>";
+		};
+		156DBBA912189681008709BE /* Branch */ = {
+			isa = PBXGroup;
+			children = (
+				15EB550C12189ED3000E5CF7 /* BEQ_state.expected */,
+				15EB550F1218A06A000E5CF7 /* BNE_state.expected */,
+				15EB55121218A148000E5CF7 /* BGT_state.expected */,
+				15EB553C1218A1F5000E5CF7 /* BGE_state.expected */,
+				15EB55431218A278000E5CF7 /* BLT_state.expected */,
+				15EB554E1218A301000E5CF7 /* BLE_state.expected */,
+			);
+			name = Branch;
+			sourceTree = "<group>";
+		};
+		156DBBAA12189689008709BE /* Jump */ = {
+			isa = PBXGroup;
+			children = (
+				15EB54FC12189BFF000E5CF7 /* JMP_state.expected */,
+				15EB54FD12189BFF000E5CF7 /* JMPR_state.expected */,
+			);
+			name = Jump;
+			sourceTree = "<group>";
+		};
+		156DBBAB1218968F008709BE /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				15EB54F612189BA0000E5CF7 /* HALT_state.expected */,
+				15EB54F712189BA0000E5CF7 /* IN_state.expected */,
+				15EB54F812189BA0000E5CF7 /* NOP_state.expected */,
+				15EB54F912189BA0000E5CF7 /* OUT_state.expected */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
+		156DBBAC12189695008709BE /* Shift */ = {
+			isa = PBXGroup;
+			children = (
+				15EB54F412189A78000E5CF7 /* SLL_state.expected */,
+				15EB54F512189A78000E5CF7 /* SRL_state.expected */,
+			);
+			name = Shift;
+			sourceTree = "<group>";
+		};
+		156DBBAD1218969A008709BE /* Arithmetic */ = {
+			isa = PBXGroup;
+			children = (
+				156DBBB01218977A008709BE /* ADD_state.expected */,
+				15EB54E31218986F000E5CF7 /* ADDI_state.expected */,
+				15EB54E41218994B000E5CF7 /* DIV_state.expected */,
+				15EB54E51218994B000E5CF7 /* MUL_state.expected */,
+				15EB54E61218994B000E5CF7 /* SUB_state.expected */,
+				15EB54E71218994B000E5CF7 /* SUBI_state.expected */,
+			);
+			name = Arithmetic;
+			sourceTree = "<group>";
+		};
+		159BD2E6117266CF0068FD7E /* Arithmetic */ = {
+			isa = PBXGroup;
+			children = (
+				159BD27B117169450068FD7E /* ADD_test.s */,
+				159BD29711719CB90068FD7E /* ADDI_test.s */,
+				159BD29411719C9A0068FD7E /* DIV_test.s */,
+				159BD29311719C850068FD7E /* MUL_test.s */,
+				159BD29911719DB60068FD7E /* SUB_test.s */,
+				159BD29611719CAF0068FD7E /* SUBI_test.s */,
+			);
+			name = Arithmetic;
+			sourceTree = "<group>";
+		};
+		159BD2E7117288A40068FD7E /* Shift */ = {
+			isa = PBXGroup;
+			children = (
+				159BD2F311728A430068FD7E /* SLL_test.s */,
+				159BD2F411728A500068FD7E /* SRL_test.s */,
+			);
+			name = Shift;
+			sourceTree = "<group>";
+		};
+		159BD2E8117288AA0068FD7E /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				159BD2F0117289BD0068FD7E /* IN_test.s */,
+				159BD2F1117289CC0068FD7E /* OUT_test.s */,
+				159BD2F2117289DF0068FD7E /* NOP_test.s */,
+				15BC9BC411547A9400A60C9C /* HALT_test.s */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
+		159BD2E9117288B40068FD7E /* Jump */ = {
+			isa = PBXGroup;
+			children = (
+				159BD2F511728A750068FD7E /* JMP_test.s */,
+				159BD2F611728A820068FD7E /* JMPR_test.s */,
+			);
+			name = Jump;
+			sourceTree = "<group>";
+		};
+		159BD2EA117288CC0068FD7E /* Branch */ = {
+			isa = PBXGroup;
+			children = (
+				159BD4BC1172A8E60068FD7E /* BEQ_test.s */,
+				159BD4BE1172A8EE0068FD7E /* BNE_test.s */,
+				159BD4C01172A8FE0068FD7E /* BGT_test.s */,
+				159BD4C21172A9070068FD7E /* BGE_test.s */,
+				159BD4C41172A9150068FD7E /* BLT_test.s */,
+				159BD4C61172A9240068FD7E /* BLE_test.s */,
+			);
+			name = Branch;
+			sourceTree = "<group>";
+		};
+		159BD2EB117288DB0068FD7E /* Logical */ = {
+			isa = PBXGroup;
+			children = (
+				159BD4AC1172A8360068FD7E /* AND_test.s */,
+				159BD4AE1172A84B0068FD7E /* ANDI_test.s */,
+				159BD4B01172A8530068FD7E /* OR_test.s */,
+				159BD4B21172A85E0068FD7E /* ORI_test.s */,
+				159BD4B41172A8840068FD7E /* XOR_test.s */,
+				159BD4B61172A88C0068FD7E /* NOT_test.s */,
+				159BD4B81172A8930068FD7E /* SLT_test.s */,
+				159BD4BA1172A89A0068FD7E /* SLTI_test.s */,
+			);
+			name = Logical;
+			sourceTree = "<group>";
+		};
+		159BD2EC117288E30068FD7E /* Data Transfer */ = {
+			isa = PBXGroup;
+			children = (
+				159BD4A81172A7ED0068FD7E /* LW_test.s */,
+				159BD4A91172A7FB0068FD7E /* LWI_test.s */,
+				159BD4AA1172A8090068FD7E /* SW_test.s */,
+				159BD4AB1172A8160068FD7E /* SWI_test.s */,
+			);
+			name = "Data Transfer";
+			sourceTree = "<group>";
+		};
+		15BC9B791154722700A60C9C /* Test Instruction Programs */ = {
+			isa = PBXGroup;
+			children = (
+				159BD2EC117288E30068FD7E /* Data Transfer */,
+				159BD2EB117288DB0068FD7E /* Logical */,
+				159BD2EA117288CC0068FD7E /* Branch */,
+				159BD2E9117288B40068FD7E /* Jump */,
+				159BD2E8117288AA0068FD7E /* Misc */,
+				159BD2E7117288A40068FD7E /* Shift */,
+				159BD2E6117266CF0068FD7E /* Arithmetic */,
+				15EB556C1218A669000E5CF7 /* FIB_test.s */,
+			);
+			path = "Test Instruction Programs";
+			sourceTree = "<group>";
+		};
+		15D5C64E10262E14005B8CAE /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				15D5C64F10262E82005B8CAE /* VCInstructionInputDelegate.h */,
+				15D5C65010262E82005B8CAE /* VCInstructionInputDelegate.m */,
+				15D5C65210262E95005B8CAE /* VCInstructionOutputDelegate.h */,
+				15D5C65310262E95005B8CAE /* VCInstructionOutputDelegate.m */,
+				15D5C65510262EA1005B8CAE /* VCInstructionHaltDelegate.h */,
+				15D5C65610262EA1005B8CAE /* VCInstructionHaltDelegate.m */,
+				151B4804106ED8B400B4C754 /* VCInstructionNopDelegate.h */,
+				151B4805106ED8B400B4C754 /* VCInstructionNopDelegate.m */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		15EB3201122606480058F081 /* Mains */ = {
+			isa = PBXGroup;
+			children = (
+				1578DC1C106EFABA00BF32A0 /* commandLineMain.m */,
+				157D36381093B9C200B21488 /* vcassemMain.m */,
+				156DBB49121799E1008709BE /* instructionTestMain.m */,
+			);
+			path = Mains;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1578DBF5106EF90B00BF32A0 /* virtualComputer */,
+				15C637B51093ADD5005DF9F4 /* vcassem */,
+				156DBB3D121796BD008709BE /* instructionTest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* Virtual Computer */ = {
+			isa = PBXGroup;
+			children = (
+				1557884312B5EF94003EA807 /* README */,
+				15B8E68512B5ED1D002CE543 /* LICENSE */,
+				1534B5141249BB42001FB8E2 /* Source */,
+				15EB3201122606480058F081 /* Mains */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = "Virtual Computer";
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* Virtual Computer_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				152C62AF1025106E00FC2363 /* instructionReference.txt */,
+				156DBBA612189666008709BE /* Expected Test Results */,
+				15BC9B791154722700A60C9C /* Test Instruction Programs */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		156DBB3C121796BD008709BE /* instructionTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 156DBB41121796DB008709BE /* Build configuration list for PBXNativeTarget "instructionTest" */;
+			buildPhases = (
+				15B8E54612B48AF8002CE543 /* Copy Files Needed For Testing */,
+				156DBB3A121796BD008709BE /* Sources */,
+				156DBB3B121796BD008709BE /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				153ED4B21227566E00C324B9 /* PBXTargetDependency */,
+				153ED4B41227567200C324B9 /* PBXTargetDependency */,
+			);
+			name = instructionTest;
+			productName = instructionTest;
+			productReference = 156DBB3D121796BD008709BE /* instructionTest */;
+			productType = "com.apple.product-type.tool";
+		};
+		1578DBF4106EF90B00BF32A0 /* virtualComputer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1578DBF9106EF92900BF32A0 /* Build configuration list for PBXNativeTarget "virtualComputer" */;
+			buildPhases = (
+				1578DBF2106EF90B00BF32A0 /* Sources */,
+				1578DBF3106EF90B00BF32A0 /* Frameworks */,
+				15CE5F5C10EAD0DF003C6975 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = virtualComputer;
+			productName = virtualComputer;
+			productReference = 1578DBF5106EF90B00BF32A0 /* virtualComputer */;
+			productType = "com.apple.product-type.tool";
+		};
+		15C637B41093ADD5005DF9F4 /* vcassem */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15C637B91093ADF4005DF9F4 /* Build configuration list for PBXNativeTarget "vcassem" */;
+			buildPhases = (
+				15C637B21093ADD5005DF9F4 /* Sources */,
+				15C637B31093ADD5005DF9F4 /* Frameworks */,
+				15CE5F5110EAD07A003C6975 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = vcassem;
+			productName = vcassem;
+			productReference = 15C637B51093ADD5005DF9F4 /* vcassem */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Virtual Computer" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Virtual Computer */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1578DBF4106EF90B00BF32A0 /* virtualComputer */,
+				15C637B41093ADD5005DF9F4 /* vcassem */,
+				156DBB3C121796BD008709BE /* instructionTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		156DBB3A121796BD008709BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				156DBB4A121799E1008709BE /* instructionTestMain.m in Sources */,
+				156DBB551218895C008709BE /* TestRunner.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1578DBF2106EF90B00BF32A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				150504F5109133A2000DFC89 /* VCInstruction.m in Sources */,
+				150504F6109133A2000DFC89 /* VCInstructionAddDelegate.m in Sources */,
+				150504F7109133A2000DFC89 /* VCInstructionSubtractDelegate.m in Sources */,
+				150504F8109133A2000DFC89 /* VCInstructionSubtractImmediateDelegate.m in Sources */,
+				150504F9109133A2000DFC89 /* VCInstructionAddImmediateDelegate.m in Sources */,
+				150504FA109133A2000DFC89 /* VCInstructionMultiplyDelegate.m in Sources */,
+				150504FB109133A2000DFC89 /* VCInstructionDivideDelegate.m in Sources */,
+				150504FC109133A2000DFC89 /* VCInstructionLoadWordImmediateDelegate.m in Sources */,
+				150504FD109133A2000DFC89 /* VCInstructionStoreWordImmediateDelegate.m in Sources */,
+				150504FE109133A2000DFC89 /* VCInstructionAndDelegate.m in Sources */,
+				150504FF109133A2000DFC89 /* VCInstructionAndImmediateDelegate.m in Sources */,
+				15050500109133A2000DFC89 /* VCInstructionOrDelegate.m in Sources */,
+				15050501109133A2000DFC89 /* VCInstructionOrImmediateDelegate.m in Sources */,
+				15050502109133A2000DFC89 /* VCInstructionXorDelegate.m in Sources */,
+				15050503109133A2000DFC89 /* VCInstructionNotDelegate.m in Sources */,
+				15050504109133A2000DFC89 /* VCInstructionSetOnLessThanDelegate.m in Sources */,
+				15050505109133A2000DFC89 /* VCInstructionSetOnLessThanImmediateDelegate.m in Sources */,
+				15050506109133A2000DFC89 /* VCInstructionJumpDelegate.m in Sources */,
+				15050507109133A2000DFC89 /* VCInstructionJumpRegisterDelegate.m in Sources */,
+				15050508109133A2000DFC89 /* VCInstructionBranchOnEqualDelegate.m in Sources */,
+				15050509109133A2000DFC89 /* VCInstructionBranchOnNotEqualDelegate.m in Sources */,
+				1505050A109133A2000DFC89 /* VCInstructionShiftLeftLogicalDelegate.m in Sources */,
+				1505050B109133A2000DFC89 /* VCInstructionShiftRightLogicalDelegate.m in Sources */,
+				150504D21091331D000DFC89 /* VCVirtualComputer.m in Sources */,
+				1505050C109133A2000DFC89 /* VCRegisters.m in Sources */,
+				1505050D109133A2000DFC89 /* VCMemory.m in Sources */,
+				1505050E109133A2000DFC89 /* VCInstructionInputDelegate.m in Sources */,
+				1505050F109133A2000DFC89 /* VCInstructionOutputDelegate.m in Sources */,
+				15050510109133A2000DFC89 /* VCInstructionHaltDelegate.m in Sources */,
+				15050511109133A2000DFC89 /* VCInstructionBranchGreaterThanDelegate.m in Sources */,
+				15050512109133A2000DFC89 /* VCInstructionBranchGreaterEqualDelegate.m in Sources */,
+				15050513109133A2000DFC89 /* VCInstructionBranchLessThanDelegate.m in Sources */,
+				15050514109133A2000DFC89 /* VCInstructionBranchLessEqualDelegate.m in Sources */,
+				15050515109133A2000DFC89 /* VCInstructionNopDelegate.m in Sources */,
+				15050516109133A2000DFC89 /* VCInstructionDelegateCache.m in Sources */,
+				1578DC1D106EFABA00BF32A0 /* commandLineMain.m in Sources */,
+				15C637A3109396D7005DF9F4 /* VCInstructionLoadWordDelegate.m in Sources */,
+				15C637A7109396EE005DF9F4 /* VCInstructionStoreWordDelegate.m in Sources */,
+				15C502111166C32E00820D26 /* DDArgumentManager.m in Sources */,
+				15C502721167C9E000820D26 /* DDUtility.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15C637B21093ADD5005DF9F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				150A1EC110AFCE5C0080FA0F /* VCRegisters.m in Sources */,
+				150A1EBE10AFCE4A0080FA0F /* VCMemory.m in Sources */,
+				157D36391093B9C200B21488 /* vcassemMain.m in Sources */,
+				157D364C1093BD7C00B21488 /* VCAssemblerHelper.m in Sources */,
+				150A1E7D10AFCDA50080FA0F /* VCInstruction.m in Sources */,
+				150A1E9910AFCDB70080FA0F /* VCInstructionDelegateCache.m in Sources */,
+				150A1E9A10AFCDD70080FA0F /* VCInstructionAddDelegate.m in Sources */,
+				150A1E9B10AFCDD70080FA0F /* VCInstructionSubtractDelegate.m in Sources */,
+				150A1E9C10AFCDD70080FA0F /* VCInstructionSubtractImmediateDelegate.m in Sources */,
+				150A1E9D10AFCDD70080FA0F /* VCInstructionAddImmediateDelegate.m in Sources */,
+				150A1E9E10AFCDD70080FA0F /* VCInstructionMultiplyDelegate.m in Sources */,
+				150A1E9F10AFCDD70080FA0F /* VCInstructionDivideDelegate.m in Sources */,
+				150A1EA010AFCDD70080FA0F /* VCInstructionLoadWordImmediateDelegate.m in Sources */,
+				150A1EA110AFCDD70080FA0F /* VCInstructionStoreWordImmediateDelegate.m in Sources */,
+				150A1EA210AFCDD70080FA0F /* VCInstructionAndDelegate.m in Sources */,
+				150A1EA310AFCDD70080FA0F /* VCInstructionAndImmediateDelegate.m in Sources */,
+				150A1EA410AFCDD70080FA0F /* VCInstructionOrDelegate.m in Sources */,
+				150A1EA510AFCDD70080FA0F /* VCInstructionOrImmediateDelegate.m in Sources */,
+				150A1EA610AFCDD70080FA0F /* VCInstructionXorDelegate.m in Sources */,
+				150A1EA710AFCDD70080FA0F /* VCInstructionNotDelegate.m in Sources */,
+				150A1EA810AFCDD70080FA0F /* VCInstructionSetOnLessThanDelegate.m in Sources */,
+				150A1EA910AFCDD70080FA0F /* VCInstructionSetOnLessThanImmediateDelegate.m in Sources */,
+				150A1EAA10AFCDD70080FA0F /* VCInstructionJumpDelegate.m in Sources */,
+				150A1EAB10AFCDD70080FA0F /* VCInstructionJumpRegisterDelegate.m in Sources */,
+				150A1EAC10AFCDD70080FA0F /* VCInstructionBranchOnEqualDelegate.m in Sources */,
+				150A1EAD10AFCDD70080FA0F /* VCInstructionBranchOnNotEqualDelegate.m in Sources */,
+				150A1EAE10AFCDD70080FA0F /* VCInstructionShiftLeftLogicalDelegate.m in Sources */,
+				150A1EAF10AFCDD70080FA0F /* VCInstructionShiftRightLogicalDelegate.m in Sources */,
+				150A1EB010AFCDF00080FA0F /* VCInstructionInputDelegate.m in Sources */,
+				150A1EB110AFCDF00080FA0F /* VCInstructionOutputDelegate.m in Sources */,
+				150A1EB210AFCDF00080FA0F /* VCInstructionHaltDelegate.m in Sources */,
+				150A1EB310AFCDF00080FA0F /* VCInstructionBranchGreaterThanDelegate.m in Sources */,
+				150A1EB410AFCDF00080FA0F /* VCInstructionBranchGreaterEqualDelegate.m in Sources */,
+				150A1EB510AFCDF00080FA0F /* VCInstructionBranchLessThanDelegate.m in Sources */,
+				150A1EB610AFCDF00080FA0F /* VCInstructionBranchLessEqualDelegate.m in Sources */,
+				150A1EB710AFCDF00080FA0F /* VCInstructionNopDelegate.m in Sources */,
+				150A1EB810AFCDFB0080FA0F /* VCInstructionLoadWordDelegate.m in Sources */,
+				150A1EB910AFCDFB0080FA0F /* VCInstructionStoreWordDelegate.m in Sources */,
+				15C502101166C32E00820D26 /* DDArgumentManager.m in Sources */,
+				15C502711167C9E000820D26 /* DDUtility.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		153ED4B21227566E00C324B9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1578DBF4106EF90B00BF32A0 /* virtualComputer */;
+			targetProxy = 153ED4B11227566E00C324B9 /* PBXContainerItemProxy */;
+		};
+		153ED4B41227567200C324B9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 15C637B41093ADD5005DF9F4 /* vcassem */;
+			targetProxy = 153ED4B31227567200C324B9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		156DBB3F121796BD008709BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = instructionTest;
+			};
+			name = Debug;
+		};
+		156DBB40121796BD008709BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = instructionTest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		1578DBF7106EF90B00BF32A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = virtualComputer;
+			};
+			name = Debug;
+		};
+		1578DBF8106EF90B00BF32A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = virtualComputer;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		15C637B71093ADD6005DF9F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = vcassem;
+			};
+			name = Debug;
+		};
+		15C637B81093ADD6005DF9F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = vcassem;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = NO;
+				GCC_WARN_PEDANTIC = NO;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"-Xclang",
+					"-fobjc-nonfragile-abi2",
+				);
+				PREBINDING = NO;
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"-Xclang",
+					"-fobjc-nonfragile-abi2",
+				);
+				PREBINDING = NO;
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		156DBB41121796DB008709BE /* Build configuration list for PBXNativeTarget "instructionTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				156DBB3F121796BD008709BE /* Debug */,
+				156DBB40121796BD008709BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1578DBF9106EF92900BF32A0 /* Build configuration list for PBXNativeTarget "virtualComputer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1578DBF7106EF90B00BF32A0 /* Debug */,
+				1578DBF8106EF90B00BF32A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15C637B91093ADF4005DF9F4 /* Build configuration list for PBXNativeTarget "vcassem" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15C637B71093ADD6005DF9F4 /* Debug */,
+				15C637B81093ADD6005DF9F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Virtual Computer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
