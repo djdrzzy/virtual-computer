@@ -158,6 +158,48 @@
 		15C502721167C9E000820D26 /* DDUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C502701167C9E000820D26 /* DDUtility.m */; };
 		15C637A3109396D7005DF9F4 /* VCInstructionLoadWordDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C637A1109396D7005DF9F4 /* VCInstructionLoadWordDelegate.m */; };
 		15C637A7109396EE005DF9F4 /* VCInstructionStoreWordDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C637A5109396EE005DF9F4 /* VCInstructionStoreWordDelegate.m */; };
+		15C9305612B9D261005E03CF /* VCVirtualComputer.h in Headers */ = {isa = PBXBuildFile; fileRef = 151B15B5102513F7007AB3A0 /* VCVirtualComputer.h */; };
+		15C9305912B9D28E005E03CF /* VCInstructionJumpRegisterDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61E310250E1A00FC2363 /* VCInstructionJumpRegisterDelegate.m */; };
+		15C9305A12B9D28E005E03CF /* VCInstructionOrDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61BB10250B9F00FC2363 /* VCInstructionOrDelegate.m */; };
+		15C9305B12B9D28E005E03CF /* VCInstructionAndDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61B710250B9F00FC2363 /* VCInstructionAndDelegate.m */; };
+		15C9305C12B9D28E005E03CF /* VCInstructionStoreWordDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C637A5109396EE005DF9F4 /* VCInstructionStoreWordDelegate.m */; };
+		15C9305D12B9D28E005E03CF /* VCInstructionSubtractImmediateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C615F1025089600FC2363 /* VCInstructionSubtractImmediateDelegate.m */; };
+		15C9305E12B9D28E005E03CF /* VCInstructionBranchGreaterEqualDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D5C65C10262EEB005B8CAE /* VCInstructionBranchGreaterEqualDelegate.m */; };
+		15C9305F12B9D28E005E03CF /* VCInstructionLoadWordImmediateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61A710250A7100FC2363 /* VCInstructionLoadWordImmediateDelegate.m */; };
+		15C9306012B9D28E005E03CF /* VCInstructionLoadWordDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C637A1109396D7005DF9F4 /* VCInstructionLoadWordDelegate.m */; };
+		15C9306112B9D28E005E03CF /* VCInstructionShiftRightLogicalDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61F010250E7000FC2363 /* VCInstructionShiftRightLogicalDelegate.m */; };
+		15C9306212B9D28E005E03CF /* VCRegisters.m in Sources */ = {isa = PBXBuildFile; fileRef = 151B15C11025141E007AB3A0 /* VCRegisters.m */; };
+		15C9306312B9D28E005E03CF /* VCInstructionBranchOnEqualDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61E710250E2700FC2363 /* VCInstructionBranchOnEqualDelegate.m */; };
+		15C9306412B9D28E005E03CF /* VCInstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61321025033F00FC2363 /* VCInstruction.m */; };
+		15C9306512B9D28E005E03CF /* VCInstructionBranchGreaterThanDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D5C65910262ED4005B8CAE /* VCInstructionBranchGreaterThanDelegate.m */; };
+		15C9306612B9D28E005E03CF /* VCAssemblerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 157D364B1093BD7C00B21488 /* VCAssemblerHelper.m */; };
+		15C9306712B9D28E005E03CF /* DDArgumentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5020F1166C32E00820D26 /* DDArgumentManager.m */; };
+		15C9306812B9D28E005E03CF /* DDUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C502701167C9E000820D26 /* DDUtility.m */; };
+		15C9306912B9D28E005E03CF /* VCInstructionSubtractDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C615D1025089600FC2363 /* VCInstructionSubtractDelegate.m */; };
+		15C9306A12B9D28E005E03CF /* VCInstructionBranchLessThanDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D5C65F10262F05005B8CAE /* VCInstructionBranchLessThanDelegate.m */; };
+		15C9306B12B9D28E005E03CF /* VCInstructionStoreWordImmediateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61AB10250A7100FC2363 /* VCInstructionStoreWordImmediateDelegate.m */; };
+		15C9306C12B9D28E005E03CF /* VCInstructionHaltDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D5C65610262EA1005B8CAE /* VCInstructionHaltDelegate.m */; };
+		15C9306D12B9D28E005E03CF /* VCInstructionAndImmediateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61B910250B9F00FC2363 /* VCInstructionAndImmediateDelegate.m */; };
+		15C9306E12B9D28E005E03CF /* VCInstructionShiftLeftLogicalDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61EE10250E7000FC2363 /* VCInstructionShiftLeftLogicalDelegate.m */; };
+		15C9306F12B9D28E005E03CF /* VCMemory.m in Sources */ = {isa = PBXBuildFile; fileRef = 151B15DA10251497007AB3A0 /* VCMemory.m */; };
+		15C9307012B9D28E005E03CF /* TestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 156DBB541218895C008709BE /* TestRunner.m */; };
+		15C9307112B9D28E005E03CF /* VCInstructionNotDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61C110250B9F00FC2363 /* VCInstructionNotDelegate.m */; };
+		15C9307212B9D28E005E03CF /* VCInstructionNopDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 151B4805106ED8B400B4C754 /* VCInstructionNopDelegate.m */; };
+		15C9307312B9D28E005E03CF /* VCInstructionXorDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61BF10250B9F00FC2363 /* VCInstructionXorDelegate.m */; };
+		15C9307412B9D28E005E03CF /* VCInstructionOutputDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D5C65310262E95005B8CAE /* VCInstructionOutputDelegate.m */; };
+		15C9307512B9D28E005E03CF /* VCInstructionSetOnLessThanDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61C310250B9F00FC2363 /* VCInstructionSetOnLessThanDelegate.m */; };
+		15C9307612B9D28E005E03CF /* VCInstructionInputDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D5C65010262E82005B8CAE /* VCInstructionInputDelegate.m */; };
+		15C9307712B9D28E005E03CF /* VCInstructionOrImmediateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61BD10250B9F00FC2363 /* VCInstructionOrImmediateDelegate.m */; };
+		15C9307812B9D28E005E03CF /* VCVirtualComputer.m in Sources */ = {isa = PBXBuildFile; fileRef = 151B15B6102513F7007AB3A0 /* VCVirtualComputer.m */; };
+		15C9307912B9D28E005E03CF /* VCInstructionBranchOnNotEqualDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61E910250E2700FC2363 /* VCInstructionBranchOnNotEqualDelegate.m */; };
+		15C9307A12B9D28E005E03CF /* VCInstructionBranchLessEqualDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D5C66210262F14005B8CAE /* VCInstructionBranchLessEqualDelegate.m */; };
+		15C9307B12B9D28E005E03CF /* VCInstructionDivideDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61671025089600FC2363 /* VCInstructionDivideDelegate.m */; };
+		15C9307C12B9D28E005E03CF /* VCInstructionAddDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61591025089600FC2363 /* VCInstructionAddDelegate.m */; };
+		15C9307D12B9D28E005E03CF /* VCInstructionMultiplyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61651025089600FC2363 /* VCInstructionMultiplyDelegate.m */; };
+		15C9307E12B9D28E005E03CF /* VCInstructionSetOnLessThanImmediateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61C510250B9F00FC2363 /* VCInstructionSetOnLessThanImmediateDelegate.m */; };
+		15C9307F12B9D28E005E03CF /* VCInstructionJumpDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61E110250E1A00FC2363 /* VCInstructionJumpDelegate.m */; };
+		15C9308012B9D28E005E03CF /* VCInstructionDelegateCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 151B480C106EDA1200B4C754 /* VCInstructionDelegateCache.m */; };
+		15C9308112B9D28E005E03CF /* VCInstructionAddImmediateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61611025089600FC2363 /* VCInstructionAddImmediateDelegate.m */; };
 		15CE5F4D10EAD076003C6975 /* vcassem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 15C637B51093ADD5005DF9F4 /* vcassem */; };
 		15CE5F5710EAD0D5003C6975 /* virtualComputer in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1578DBF5106EF90B00BF32A0 /* virtualComputer */; };
 /* End PBXBuildFile section */
@@ -395,6 +437,7 @@
 		15C637A4109396EE005DF9F4 /* VCInstructionStoreWordDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionStoreWordDelegate.h; sourceTree = "<group>"; };
 		15C637A5109396EE005DF9F4 /* VCInstructionStoreWordDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionStoreWordDelegate.m; sourceTree = "<group>"; };
 		15C637B51093ADD5005DF9F4 /* vcassem */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = vcassem; sourceTree = BUILT_PRODUCTS_DIR; };
+		15C9304D12B9D23B005E03CF /* libvirtualcomputer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libvirtualcomputer.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		15D5C64F10262E82005B8CAE /* VCInstructionInputDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionInputDelegate.h; sourceTree = "<group>"; };
 		15D5C65010262E82005B8CAE /* VCInstructionInputDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInstructionInputDelegate.m; sourceTree = "<group>"; };
 		15D5C65210262E95005B8CAE /* VCInstructionOutputDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInstructionOutputDelegate.h; sourceTree = "<group>"; };
@@ -464,6 +507,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		15C637B31093ADD5005DF9F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15C9304B12B9D23B005E03CF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -869,6 +919,7 @@
 				1578DBF5106EF90B00BF32A0 /* virtualComputer */,
 				15C637B51093ADD5005DF9F4 /* vcassem */,
 				156DBB3D121796BD008709BE /* instructionTest */,
+				15C9304D12B9D23B005E03CF /* libvirtualcomputer.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -917,6 +968,17 @@
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		15C9304912B9D23B005E03CF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15C9305612B9D261005E03CF /* VCVirtualComputer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		156DBB3C121796BD008709BE /* instructionTest */ = {
@@ -972,6 +1034,23 @@
 			productReference = 15C637B51093ADD5005DF9F4 /* vcassem */;
 			productType = "com.apple.product-type.tool";
 		};
+		15C9304C12B9D23B005E03CF /* virtualcomputer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15C9305512B9D259005E03CF /* Build configuration list for PBXNativeTarget "virtualcomputer" */;
+			buildPhases = (
+				15C9304912B9D23B005E03CF /* Headers */,
+				15C9304A12B9D23B005E03CF /* Sources */,
+				15C9304B12B9D23B005E03CF /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = virtualcomputer;
+			productName = virtualcomputer;
+			productReference = 15C9304D12B9D23B005E03CF /* libvirtualcomputer.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -994,6 +1073,7 @@
 				1578DBF4106EF90B00BF32A0 /* virtualComputer */,
 				15C637B41093ADD5005DF9F4 /* vcassem */,
 				156DBB3C121796BD008709BE /* instructionTest */,
+				15C9304C12B9D23B005E03CF /* virtualcomputer */,
 			);
 		};
 /* End PBXProject section */
@@ -1099,6 +1179,54 @@
 				150A1EB910AFCDFB0080FA0F /* VCInstructionStoreWordDelegate.m in Sources */,
 				15C502101166C32E00820D26 /* DDArgumentManager.m in Sources */,
 				15C502711167C9E000820D26 /* DDUtility.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15C9304A12B9D23B005E03CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15C9305912B9D28E005E03CF /* VCInstructionJumpRegisterDelegate.m in Sources */,
+				15C9305A12B9D28E005E03CF /* VCInstructionOrDelegate.m in Sources */,
+				15C9305B12B9D28E005E03CF /* VCInstructionAndDelegate.m in Sources */,
+				15C9305C12B9D28E005E03CF /* VCInstructionStoreWordDelegate.m in Sources */,
+				15C9305D12B9D28E005E03CF /* VCInstructionSubtractImmediateDelegate.m in Sources */,
+				15C9305E12B9D28E005E03CF /* VCInstructionBranchGreaterEqualDelegate.m in Sources */,
+				15C9305F12B9D28E005E03CF /* VCInstructionLoadWordImmediateDelegate.m in Sources */,
+				15C9306012B9D28E005E03CF /* VCInstructionLoadWordDelegate.m in Sources */,
+				15C9306112B9D28E005E03CF /* VCInstructionShiftRightLogicalDelegate.m in Sources */,
+				15C9306212B9D28E005E03CF /* VCRegisters.m in Sources */,
+				15C9306312B9D28E005E03CF /* VCInstructionBranchOnEqualDelegate.m in Sources */,
+				15C9306412B9D28E005E03CF /* VCInstruction.m in Sources */,
+				15C9306512B9D28E005E03CF /* VCInstructionBranchGreaterThanDelegate.m in Sources */,
+				15C9306612B9D28E005E03CF /* VCAssemblerHelper.m in Sources */,
+				15C9306712B9D28E005E03CF /* DDArgumentManager.m in Sources */,
+				15C9306812B9D28E005E03CF /* DDUtility.m in Sources */,
+				15C9306912B9D28E005E03CF /* VCInstructionSubtractDelegate.m in Sources */,
+				15C9306A12B9D28E005E03CF /* VCInstructionBranchLessThanDelegate.m in Sources */,
+				15C9306B12B9D28E005E03CF /* VCInstructionStoreWordImmediateDelegate.m in Sources */,
+				15C9306C12B9D28E005E03CF /* VCInstructionHaltDelegate.m in Sources */,
+				15C9306D12B9D28E005E03CF /* VCInstructionAndImmediateDelegate.m in Sources */,
+				15C9306E12B9D28E005E03CF /* VCInstructionShiftLeftLogicalDelegate.m in Sources */,
+				15C9306F12B9D28E005E03CF /* VCMemory.m in Sources */,
+				15C9307012B9D28E005E03CF /* TestRunner.m in Sources */,
+				15C9307112B9D28E005E03CF /* VCInstructionNotDelegate.m in Sources */,
+				15C9307212B9D28E005E03CF /* VCInstructionNopDelegate.m in Sources */,
+				15C9307312B9D28E005E03CF /* VCInstructionXorDelegate.m in Sources */,
+				15C9307412B9D28E005E03CF /* VCInstructionOutputDelegate.m in Sources */,
+				15C9307512B9D28E005E03CF /* VCInstructionSetOnLessThanDelegate.m in Sources */,
+				15C9307612B9D28E005E03CF /* VCInstructionInputDelegate.m in Sources */,
+				15C9307712B9D28E005E03CF /* VCInstructionOrImmediateDelegate.m in Sources */,
+				15C9307812B9D28E005E03CF /* VCVirtualComputer.m in Sources */,
+				15C9307912B9D28E005E03CF /* VCInstructionBranchOnNotEqualDelegate.m in Sources */,
+				15C9307A12B9D28E005E03CF /* VCInstructionBranchLessEqualDelegate.m in Sources */,
+				15C9307B12B9D28E005E03CF /* VCInstructionDivideDelegate.m in Sources */,
+				15C9307C12B9D28E005E03CF /* VCInstructionAddDelegate.m in Sources */,
+				15C9307D12B9D28E005E03CF /* VCInstructionMultiplyDelegate.m in Sources */,
+				15C9307E12B9D28E005E03CF /* VCInstructionSetOnLessThanImmediateDelegate.m in Sources */,
+				15C9307F12B9D28E005E03CF /* VCInstructionJumpDelegate.m in Sources */,
+				15C9308012B9D28E005E03CF /* VCInstructionDelegateCache.m in Sources */,
+				15C9308112B9D28E005E03CF /* VCInstructionAddImmediateDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1267,6 +1395,52 @@
 			};
 			name = Release;
 		};
+		15C9304E12B9D23B005E03CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/lib;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = virtualcomputer;
+			};
+			name = Debug;
+		};
+		15C9304F12B9D23B005E03CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/lib;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = virtualcomputer;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1336,6 +1510,15 @@
 			buildConfigurations = (
 				15C637B71093ADD6005DF9F4 /* Debug */,
 				15C637B81093ADD6005DF9F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15C9305512B9D259005E03CF /* Build configuration list for PBXNativeTarget "virtualcomputer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15C9304E12B9D23B005E03CF /* Debug */,
+				15C9304F12B9D23B005E03CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
