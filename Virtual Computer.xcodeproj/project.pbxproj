@@ -158,7 +158,6 @@
 		15C502721167C9E000820D26 /* DDUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C502701167C9E000820D26 /* DDUtility.m */; };
 		15C637A3109396D7005DF9F4 /* VCInstructionLoadWordDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C637A1109396D7005DF9F4 /* VCInstructionLoadWordDelegate.m */; };
 		15C637A7109396EE005DF9F4 /* VCInstructionStoreWordDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C637A5109396EE005DF9F4 /* VCInstructionStoreWordDelegate.m */; };
-		15C9305612B9D261005E03CF /* VCVirtualComputer.h in Headers */ = {isa = PBXBuildFile; fileRef = 151B15B5102513F7007AB3A0 /* VCVirtualComputer.h */; };
 		15C9305912B9D28E005E03CF /* VCInstructionJumpRegisterDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61E310250E1A00FC2363 /* VCInstructionJumpRegisterDelegate.m */; };
 		15C9305A12B9D28E005E03CF /* VCInstructionOrDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61BB10250B9F00FC2363 /* VCInstructionOrDelegate.m */; };
 		15C9305B12B9D28E005E03CF /* VCInstructionAndDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C61B710250B9F00FC2363 /* VCInstructionAndDelegate.m */; };
@@ -969,17 +968,6 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		15C9304912B9D23B005E03CF /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				15C9305612B9D261005E03CF /* VCVirtualComputer.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
 		156DBB3C121796BD008709BE /* instructionTest */ = {
 			isa = PBXNativeTarget;
@@ -1038,7 +1026,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 15C9305512B9D259005E03CF /* Build configuration list for PBXNativeTarget "virtualcomputer" */;
 			buildPhases = (
-				15C9304912B9D23B005E03CF /* Headers */,
 				15C9304A12B9D23B005E03CF /* Sources */,
 				15C9304B12B9D23B005E03CF /* Frameworks */,
 			);
@@ -1461,7 +1448,7 @@
 				);
 				PREBINDING = NO;
 				RUN_CLANG_STATIC_ANALYZER = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -1480,7 +1467,7 @@
 				);
 				PREBINDING = NO;
 				RUN_CLANG_STATIC_ANALYZER = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
