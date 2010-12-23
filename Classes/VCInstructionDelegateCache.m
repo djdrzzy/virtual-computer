@@ -76,6 +76,9 @@
 		self.cacheByOpcode = dictionaryOfInstructionsByOpcode;
 		self.cacheByTextualCode = dictionaryOfInstructionsByTextualCode;
 		
+		[dictionaryOfInstructionsByOpcode release];
+		[dictionaryOfInstructionsByTextualCode release];
+		
 	}
 	return self;
 }
