@@ -20,10 +20,52 @@
  * THE SOFTWARE.
  */
 
+
+/**
+ * So this use to be a lot nicer and dynamic but unfortunately the way I was 
+ * looking for classes using the runtime wasn't working so well when this was
+ * being used by other projects as a static library. Less elegant but it works.
+ *
+ * The last commit that had that really nice approach was:
+ * 4801754b11eca07b95bb264dc01159529dddcfe3
+ */
+
 #import "VCInstructionDelegate.h"
 #import "VCInstructionDelegateCache.h"
-#import "VCInstructionNopDelegate.h"
 #import <objc/objc-runtime.h>
+
+#import "VCInstructionAddDelegate.h"
+#import "VCInstructionAddImmediateDelegate.h"
+#import "VCInstructionAndDelegate.h"
+#import "VCInstructionAndImmediateDelegate.h"
+#import "VCInstructionBranchGreaterEqualDelegate.h"
+#import "VCInstructionBranchGreaterThanDelegate.h"
+#import "VCInstructionBranchLessEqualDelegate.h"
+#import "VCInstructionBranchLessThanDelegate.h"
+#import "VCInstructionBranchOnEqualDelegate.h"
+#import "VCInstructionBranchOnNotEqualDelegate.h"
+#import "VCInstructionDivideDelegate.h"
+#import "VCInstructionHaltDelegate.h"
+#import "VCInstructionInputDelegate.h"
+#import "VCInstructionJumpDelegate.h"
+#import "VCInstructionJumpRegisterDelegate.h"
+#import "VCInstructionLoadWordDelegate.h"
+#import "VCInstructionLoadWordImmediateDelegate.h"
+#import "VCInstructionMultiplyDelegate.h"
+#import "VCInstructionNopDelegate.h"
+#import "VCInstructionNotDelegate.h"
+#import "VCInstructionOrDelegate.h"
+#import "VCInstructionOrImmediateDelegate.h"
+#import "VCInstructionOutputDelegate.h"
+#import "VCInstructionSetOnLessThanDelegate.h"
+#import "VCInstructionSetOnLessThanImmediateDelegate.h"
+#import "VCInstructionShiftLeftLogicalDelegate.h"
+#import "VCInstructionShiftRightLogicalDelegate.h"
+#import "VCInstructionStoreWordDelegate.h"
+#import "VCInstructionStoreWordImmediateDelegate.h"
+#import "VCInstructionSubtractDelegate.h"
+#import "VCInstructionSubtractImmediateDelegate.h"
+#import "VCInstructionXorDelegate.h"
 
 @interface VCInstructionDelegateCache ()
 @property (nonatomic, readwrite, retain) NSDictionary *cacheByOpcode;
@@ -40,45 +82,65 @@
 		NSMutableDictionary *dictionaryOfInstructionsByOpcode = [[NSMutableDictionary alloc] init];
 		NSMutableDictionary *dictionaryOfInstructionsByTextualCode = [[NSMutableDictionary alloc] init];
 		
-		int numClasses;
-		Class * classes = NULL;
+		NSArray *instructionDelegates = 
+		[NSArray arrayWithObjects:
+		 VCInstructionAddDelegate.class,
+		 VCInstructionAddImmediateDelegate.class,
+		 VCInstructionAndDelegate.class,
+		 VCInstructionAndImmediateDelegate.class,
+		 VCInstructionBranchGreaterEqualDelegate.class,
+		 VCInstructionBranchGreaterThanDelegate.class,
+		 VCInstructionBranchLessEqualDelegate.class,
+		 VCInstructionBranchLessThanDelegate.class,
+		 VCInstructionBranchOnEqualDelegate.class,
+		 VCInstructionBranchOnNotEqualDelegate.class,
+		 VCInstructionDivideDelegate.class,
+		 VCInstructionHaltDelegate.class,
+		 VCInstructionInputDelegate.class,
+		 VCInstructionJumpDelegate.class,
+		 VCInstructionJumpRegisterDelegate.class,
+		 VCInstructionLoadWordDelegate.class,
+		 VCInstructionLoadWordImmediateDelegate.class,
+		 VCInstructionMultiplyDelegate.class,
+		 VCInstructionNopDelegate.class,
+		 VCInstructionNotDelegate.class,
+		 VCInstructionOrDelegate.class,
+		 VCInstructionOrImmediateDelegate.class,
+		 VCInstructionOutputDelegate.class,
+		 VCInstructionSetOnLessThanDelegate.class,
+		 VCInstructionSetOnLessThanImmediateDelegate.class,
+		 VCInstructionShiftLeftLogicalDelegate.class,
+		 VCInstructionShiftRightLogicalDelegate.class,
+		 VCInstructionStoreWordDelegate.class,
+		 VCInstructionStoreWordImmediateDelegate.class,
+		 VCInstructionSubtractDelegate.class,
+		 VCInstructionSubtractImmediateDelegate.class,
+		 VCInstructionXorDelegate.class,
+		 nil];
 		
-		classes = NULL;
-		numClasses = objc_getClassList(NULL, 0);
-		
-		if (numClasses > 0 )
-		{
-			classes = malloc(sizeof(Class) * numClasses);
-			numClasses = objc_getClassList(classes, numClasses);
+		for(NSUInteger i = 0; i < instructionDelegates.count; i++) {
+			NSAssert(class_conformsToProtocol([instructionDelegates objectAtIndex:i], @protocol(VCInstructionDelegate)),
+							 @"The encountered class does not conform to the proper protocol!");
 			
+			id delegateToCache = [[[instructionDelegates objectAtIndex:i] alloc] init];
 			
-			for(int i = 0; i < numClasses; i++) {
-				if(class_conformsToProtocol(classes[i], @protocol(VCInstructionDelegate))) {
-					
-					id delegateToCache = [[classes[i] alloc] init];
-					
-					NSString *classKeyOpcode = [NSString stringWithFormat:@"%i", 
-																			[delegateToCache instructionOperationCode]];
-					
-					NSString *classKeyTextualCode = [delegateToCache instructionTextualCode];
-					
-					NSAssert([dictionaryOfInstructionsByOpcode valueForKey:classKeyOpcode] == nil, @"Opcode collision!");
-					NSAssert([dictionaryOfInstructionsByTextualCode valueForKey:classKeyTextualCode] == nil, @"Textual code collision!");
-					
-					[dictionaryOfInstructionsByOpcode setValue:delegateToCache forKey:classKeyOpcode];
-					[dictionaryOfInstructionsByTextualCode setValue:delegateToCache forKey:classKeyTextualCode];
-					
-					[delegateToCache release];
-				}
-			}
+			NSString *classKeyOpcode = [NSString stringWithFormat:@"%i", 
+																	[delegateToCache instructionOperationCode]];
 			
+			NSString *classKeyTextualCode = [delegateToCache instructionTextualCode];
 			
-			self.cacheByOpcode = dictionaryOfInstructionsByOpcode;
-			self.cacheByTextualCode = dictionaryOfInstructionsByTextualCode;
+			NSAssert([dictionaryOfInstructionsByOpcode valueForKey:classKeyOpcode] == nil, @"Opcode collision!");
+			NSAssert([dictionaryOfInstructionsByTextualCode valueForKey:classKeyTextualCode] == nil, @"Textual code collision!");
 			
+			[dictionaryOfInstructionsByOpcode setValue:delegateToCache forKey:classKeyOpcode];
+			[dictionaryOfInstructionsByTextualCode setValue:delegateToCache forKey:classKeyTextualCode];
 			
-			free(classes);
+			[delegateToCache release];
 		}
+		
+		
+		self.cacheByOpcode = dictionaryOfInstructionsByOpcode;
+		self.cacheByTextualCode = dictionaryOfInstructionsByTextualCode;
 		
 		
 		[dictionaryOfInstructionsByOpcode release];
