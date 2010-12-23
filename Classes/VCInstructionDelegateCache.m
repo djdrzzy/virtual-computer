@@ -23,6 +23,7 @@
 #import "VCInstructionDelegate.h"
 #import "VCInstructionDelegateCache.h"
 #import "VCInstructionNopDelegate.h"
+#import "VCInstructionOutputDelegate.h"
 #import <objc/objc-runtime.h>
 
 @interface VCInstructionDelegateCache ()
@@ -50,34 +51,42 @@
 		{
 			classes = malloc(sizeof(Class) * numClasses);
 			numClasses = objc_getClassList(classes, numClasses);
+			
+			
+			for(int i = 0; i < numClasses; i++) {
+				//NSLog(@"classes[i]: %@", classes[i]);
+				if(class_conformsToProtocol(classes[i], @protocol(VCInstructionDelegate))) {
+					
+					id delegateToCache = [[classes[i] alloc] init];
+					
+					NSString *classKeyOpcode = [NSString stringWithFormat:@"%i", 
+																			[delegateToCache instructionOperationCode]];
+					
+					NSString *classKeyTextualCode = [delegateToCache instructionTextualCode];
+					
+					NSAssert([dictionaryOfInstructionsByOpcode valueForKey:classKeyOpcode] == nil, @"Opcode collision!");
+					NSAssert([dictionaryOfInstructionsByTextualCode valueForKey:classKeyTextualCode] == nil, @"Textual code collision!");
+					
+					[dictionaryOfInstructionsByOpcode setValue:delegateToCache forKey:classKeyOpcode];
+					[dictionaryOfInstructionsByTextualCode setValue:delegateToCache forKey:classKeyTextualCode];
+					
+					[delegateToCache release];
+				}
+			}
+			
+			
+			self.cacheByOpcode = dictionaryOfInstructionsByOpcode;
+			self.cacheByTextualCode = dictionaryOfInstructionsByTextualCode;
+			
+			
 			free(classes);
 		}
 		
 		
-		for(int i = 0; i < numClasses; i++)
-			if(class_conformsToProtocol(classes[i], @protocol(VCInstructionDelegate))) {
-				
-				id delegateToCache = [[classes[i] alloc] init];
-				
-				NSString *classKeyOpcode = [NSString stringWithFormat:@"%i", 
-										   [delegateToCache instructionOperationCode]];
-				
-				NSString *classKeyTextualCode = [delegateToCache instructionTextualCode];
-				
-				NSAssert([dictionaryOfInstructionsByOpcode valueForKey:classKeyOpcode] == nil, @"Opcode collision!");
-				NSAssert([dictionaryOfInstructionsByTextualCode valueForKey:classKeyTextualCode] == nil, @"Textual code collision!");
-				
-				[dictionaryOfInstructionsByOpcode setValue:delegateToCache forKey:classKeyOpcode];
-				[dictionaryOfInstructionsByTextualCode setValue:delegateToCache forKey:classKeyTextualCode];
-				
-				[delegateToCache release];
-			}
-		
-		self.cacheByOpcode = dictionaryOfInstructionsByOpcode;
-		self.cacheByTextualCode = dictionaryOfInstructionsByTextualCode;
-		
 		[dictionaryOfInstructionsByOpcode release];
 		[dictionaryOfInstructionsByTextualCode release];
+		
+		
 		
 	}
 	return self;
