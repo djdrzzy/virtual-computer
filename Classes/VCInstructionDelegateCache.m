@@ -23,7 +23,6 @@
 #import "VCInstructionDelegate.h"
 #import "VCInstructionDelegateCache.h"
 #import "VCInstructionNopDelegate.h"
-#import "VCInstructionOutputDelegate.h"
 #import <objc/objc-runtime.h>
 
 @interface VCInstructionDelegateCache ()
