@@ -54,7 +54,6 @@
 			
 			
 			for(int i = 0; i < numClasses; i++) {
-				//NSLog(@"classes[i]: %@", classes[i]);
 				if(class_conformsToProtocol(classes[i], @protocol(VCInstructionDelegate))) {
 					
 					id delegateToCache = [[classes[i] alloc] init];
