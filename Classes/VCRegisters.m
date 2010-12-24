@@ -94,7 +94,7 @@ static NSString *const HALT_FLAG_STATE_KEY = @"haltFlag";
 	programCounter++;
 	
 	if(programCounter >= [self.associatedComputer lengthOfAddressSpace])
-		programCounter = 0;
+		self.haltedFlag = YES;
 }
 
 -(void)setValueOfRegister:(NSUInteger)theRegister withValue:(int)theNewValue {
