@@ -86,7 +86,7 @@
 											   memoryTable:self
 											 delegateCache:self.associatedComputer.delegateCache];
 	
-	[self.memoryTable replaceObjectAtIndex:theAddress withObject:instructionToAdd];	
+	[self.memoryTable replaceObjectAtIndex:(theAddress % self.memoryTable.count) withObject:instructionToAdd];	
 	[instructionToAdd release];
 }
 

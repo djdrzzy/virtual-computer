@@ -43,8 +43,8 @@
 	VCRegisters *registers = instruction.registerTable;
 	VCMemory *memory = instruction.memoryTable;
 	
-	int wordToStore = [memory valueOfMemoryAddress:(registers.programCounter + 1) % [memory lengthOfAddressSpace]];
-	int addressToStoreAt = [registers valueOfRegister:instruction.fieldZero];
+	u_int32_t wordToStore = [memory valueOfMemoryAddress:(registers.programCounter + 1) % [memory lengthOfAddressSpace]];
+	u_int32_t addressToStoreAt = [registers valueOfRegister:instruction.fieldZero];
 
 	// Now store the word
 	[memory setMemoryAddress:addressToStoreAt withValue:wordToStore];
