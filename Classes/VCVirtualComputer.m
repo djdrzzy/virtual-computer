@@ -68,7 +68,7 @@
 	[plistToConstruct setValue:memoryArray forKey:@"memory"];
 	[plistToConstruct setValue:registerDictionary forKey:@"registers"];
 	
-	return plistToConstruct;
+	return [[[NSDictionary alloc] initWithDictionary:plistToConstruct copyItems:YES] autorelease];
 }
 
 
