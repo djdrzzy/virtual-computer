@@ -125,9 +125,9 @@ static NSString *const HALT_FLAG_STATE_KEY = @"haltFlag";
 
 -(NSDictionary*) state {
 	NSMutableDictionary *dictionaryToReturn = [[[NSMutableDictionary alloc] init] autorelease];
-	[dictionaryToReturn setValue:self.registers forKey:REGISTER_STATE_KEY];
-	[dictionaryToReturn setValue:self.inputRegister forKey:INPUT_STATE_KEY];
-	[dictionaryToReturn setValue:outputRegister forKey:OUTPUT_STATE_KEY];
+	[dictionaryToReturn setValue:[self.registers copy] forKey:REGISTER_STATE_KEY];
+	[dictionaryToReturn setValue:[self.inputRegister copy] forKey:INPUT_STATE_KEY];
+	[dictionaryToReturn setValue:[self.outputRegister copy] forKey:OUTPUT_STATE_KEY];
 	[dictionaryToReturn setValue:[NSNumber numberWithInt:self.programCounter] forKey:PROGRAM_COUNTER_STATE_KEY];
 	[dictionaryToReturn setValue:[NSNumber numberWithBool:self.haltedFlag] forKey:HALT_FLAG_STATE_KEY];
 	return dictionaryToReturn;
