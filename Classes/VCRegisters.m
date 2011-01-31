@@ -106,7 +106,7 @@ static NSString *const HALT_FLAG_STATE_KEY = @"haltFlag";
 	int valueToReturn = 
 		[[registers objectAtIndex:((NSUInteger)theRegister % [registers count])] intValue];
 	
-	return valueToReturn;
+	return (int)valueToReturn;
 }
 
 -(int) valueOfInputRegister {
@@ -125,9 +125,9 @@ static NSString *const HALT_FLAG_STATE_KEY = @"haltFlag";
 
 -(NSDictionary*) state {
 	NSMutableDictionary *dictionaryToReturn = [[[NSMutableDictionary alloc] init] autorelease];
-	[dictionaryToReturn setValue:[self.registers copy] forKey:REGISTER_STATE_KEY];
-	[dictionaryToReturn setValue:[self.inputRegister copy] forKey:INPUT_STATE_KEY];
-	[dictionaryToReturn setValue:[self.outputRegister copy] forKey:OUTPUT_STATE_KEY];
+	[dictionaryToReturn setValue:[[self.registers copy] autorelease] forKey:REGISTER_STATE_KEY];
+	[dictionaryToReturn setValue:[[self.inputRegister copy] autorelease] forKey:INPUT_STATE_KEY];
+	[dictionaryToReturn setValue:[[self.outputRegister copy] autorelease] forKey:OUTPUT_STATE_KEY];
 	[dictionaryToReturn setValue:[NSNumber numberWithInt:self.programCounter] forKey:PROGRAM_COUNTER_STATE_KEY];
 	[dictionaryToReturn setValue:[NSNumber numberWithBool:self.haltedFlag] forKey:HALT_FLAG_STATE_KEY];
 	return dictionaryToReturn;

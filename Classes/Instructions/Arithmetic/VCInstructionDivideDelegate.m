@@ -51,11 +51,12 @@
 	int finalValue = 0;
 	
 	if(valueOne != 0) {
-		finalValue = valueZero / valueOne;		
+		finalValue = (int)((float)valueZero / (float)valueOne);		
 	} else {
 		finalValue = 0;
 	}
-
+	
+	
 	
 	[registers setValueOfRegister:fieldTwo withValue:finalValue];
 	
