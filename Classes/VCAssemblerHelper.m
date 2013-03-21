@@ -116,14 +116,14 @@
 		self.currentSeperatedInstruction = 
 		[instructionToParse componentsSeparatedByString:@" "];
 		
-		self.command = [currentSeperatedInstruction objectAtIndex:0];
+		self.command = [self.currentSeperatedInstruction objectAtIndex:0];
 		
 		NSString *methodToUse = nil;
 		
-		if ([command hasPrefix:@"*"]) {
+		if ([self.command hasPrefix:@"*"]) {
 			methodToUse = [self.commandMapper valueForKey:@"*"];
 		} else {
-			methodToUse = [self.commandMapper valueForKey:command];
+			methodToUse = [self.commandMapper valueForKey:self.command];
 		}
 		
 		[self performSelector:NSSelectorFromString(methodToUse)];
@@ -133,26 +133,26 @@
 	// Now iterate over our memory replacing parts that if they're strings and 
 	// start with * with their actual label cache values
 	
-	for(uint i = 0; i < memory.count; i++) {
-		id memoryValue = [memory objectAtIndex:i];
+	for(uint i = 0; i < self.memory.count; i++) {
+		id memoryValue = [self.memory objectAtIndex:i];
 		
 		if ([memoryValue isKindOfClass:[NSString class]] 
 				&& [memoryValue hasPrefix:@"*"]) {
 			
-			[memory replaceObjectAtIndex:i 
-												withObject:[actualLabelCache valueForKey:memoryValue]];
+			[self.memory replaceObjectAtIndex:i
+												withObject:[_actualLabelCache valueForKey:memoryValue]];
 		}
 	}
 	
 	NSMutableDictionary *registers = [[[NSMutableDictionary alloc] init] autorelease];
-	[registers setValue:programCounter forKey:@"programCounter"];
-	[registers setValue:haltFlag forKey:@"haltFlag"];
-	[registers setValue:input forKey:@"input"];
-	[registers setValue:output forKey:@"output"];
-	[registers setValue:individualRegisters forKey:@"genericRegisters"];
+	[registers setValue:self.programCounter forKey:@"programCounter"];
+	[registers setValue:self.haltFlag forKey:@"haltFlag"];
+	[registers setValue:self.input forKey:@"input"];
+	[registers setValue:self.output forKey:@"output"];
+	[registers setValue:self.individualRegisters forKey:@"genericRegisters"];
 	
 	[constructedComputer setValue:registers forKey:@"registers"];
-	[constructedComputer setValue:memory forKey:@"memory"];
+	[constructedComputer setValue:self.memory forKey:@"memory"];
 	
 	return constructedComputer;
 }
@@ -241,61 +241,61 @@
 
 - (void) processCommandPC {
 	// Here we just automatically overwrite whatever programCounter was
-	programCounter = 
-	[NSNumber numberWithInteger:[[currentSeperatedInstruction objectAtIndex:1] 
+	self.programCounter =
+	[NSNumber numberWithInteger:[[_currentSeperatedInstruction objectAtIndex:1] 
 															 integerValue]];
 	
 }
 
 - (void) processCommandHF {
 	// Same with the haltFlag
-	haltFlag = 
-	[NSNumber numberWithBool:[[currentSeperatedInstruction objectAtIndex:1] 
+	self.haltFlag=
+	[NSNumber numberWithBool:[[_currentSeperatedInstruction objectAtIndex:1] 
 														boolValue]];
 	
 }
 
 - (void) processCommandINPUT {
 	// Here we need to get everything past "INPUT "
-	input = [self.currentInstructionToParse substringFromIndex:6];
+	_input= [self.currentInstructionToParse substringFromIndex:6];
 	
 }
 
 - (void) processCommandOUTPUT {
 	// And same past "OUTPUT "
-	output = [self.currentInstructionToParse substringFromIndex:7];
+	self.output = [self.currentInstructionToParse substringFromIndex:7];
 	
 }
 
 - (void) processCommandREG {
 	// We add a register with the supplied initial value
 	NSNumber *newRegister = 
-	[NSNumber numberWithInteger:[[currentSeperatedInstruction objectAtIndex:1] 
+	[NSNumber numberWithInteger:[[self.currentSeperatedInstruction objectAtIndex:1]
 															 integerValue]];
 	
-	[individualRegisters addObject:newRegister];
+	[self.individualRegisters addObject:newRegister];
 	
 }
 
 - (void) processCommandMEM {
 	// We add a memory location with the supplied value
 	NSNumber *newMem = 
-	[NSNumber numberWithInteger:[[currentSeperatedInstruction objectAtIndex:1] 
+	[NSNumber numberWithInteger:[[self.currentSeperatedInstruction objectAtIndex:1]
 															 integerValue]];
 	
-	[memory addObject:newMem];
+	[self.memory addObject:newMem];
 	
 }
 
 - (void) processCommandPADMEM {
 	// We pad the memory with nops for however many specified
 	
-	NSInteger numberOfNops = [[currentSeperatedInstruction objectAtIndex:1] 
+	NSInteger numberOfNops = [[self.currentSeperatedInstruction objectAtIndex:1]
 														integerValue];
 	
 	for(NSInteger i = 0; i < numberOfNops; i++) {
 		NSNumber *nop = [NSNumber numberWithInteger:0];
-		[memory addObject:nop];
+		[self.memory addObject:nop];
 	}
 	
 }
@@ -305,7 +305,7 @@
 	// EX: HALT
 	// There are no operands
 	id<VCInstructionDelegate> delegateToUse = 
-	[delegateCache delegateForTextualCode:command];
+	[self.delegateCache delegateForTextualCode:self.command];
 	
 	int8_t opcodeToSet = [delegateToUse instructionOperationCode];
 	VCInstruction *instructionToUse = [[VCInstruction alloc] init];
@@ -314,7 +314,7 @@
 	NSNumber *numberToUse = 
 	[NSNumber numberWithInteger:instructionToUse.numericalRepresentation];
 	
-	[memory addObject:numberToUse];
+	[self.memory addObject:numberToUse];
 	
 	[instructionToUse release];
 	
@@ -327,7 +327,7 @@
 	// with this class. They're nice.
 	
 	id<VCInstructionDelegate> delegateToUse = 
-	[delegateCache delegateForTextualCode:command];
+	[self.delegateCache delegateForTextualCode:self.command];
 	
 	int8_t opcodeToSet = [delegateToUse instructionOperationCode];
 	
@@ -335,18 +335,18 @@
 	instructionToUse.opCode = opcodeToSet;
 	
 	instructionToUse.fieldZero = 
-	[[currentSeperatedInstruction objectAtIndex:1] intValue];
+	[[self.currentSeperatedInstruction objectAtIndex:1] intValue];
 	
 	instructionToUse.fieldOne = 
-	[[currentSeperatedInstruction objectAtIndex:2] intValue];
+	[[self.currentSeperatedInstruction objectAtIndex:2] intValue];
 	
 	instructionToUse.fieldTwo = 
-	[[currentSeperatedInstruction objectAtIndex:3] intValue];
+	[[self.currentSeperatedInstruction objectAtIndex:3] intValue];
 	
 	NSNumber *numberToUse = 
 	[NSNumber numberWithInteger:instructionToUse.numericalRepresentation];
 	
-	[memory addObject:numberToUse];
+	[self.memory addObject:numberToUse];
 	
 	[instructionToUse release];
 	
@@ -358,7 +358,7 @@
 	// instruction.
 	
 	id<VCInstructionDelegate> delegateToUse = 
-	[delegateCache delegateForTextualCode:command];
+	[self.delegateCache delegateForTextualCode:self.command];
 	
 	int8_t opcodeToSet = [delegateToUse instructionOperationCode];
 	
@@ -366,20 +366,20 @@
 	instructionToUse.opCode = opcodeToSet;
 	
 	instructionToUse.fieldZero = 
-	[[currentSeperatedInstruction objectAtIndex:1] integerValue];
+	[[self.currentSeperatedInstruction objectAtIndex:1] integerValue];
 	
 	instructionToUse.fieldTwo = 
-	[[currentSeperatedInstruction objectAtIndex:3] integerValue];
+	[[self.currentSeperatedInstruction objectAtIndex:3] integerValue];
 	
 	NSNumber *numberToUse = 
 	[NSNumber numberWithInteger:instructionToUse.numericalRepresentation];
 	
 	NSNumber *immediateStorage = 
-	[NSNumber numberWithInteger:[[currentSeperatedInstruction objectAtIndex:2] 
+	[NSNumber numberWithInteger:[[self.currentSeperatedInstruction objectAtIndex:2]
 															 integerValue]];
 	
-	[memory addObject:numberToUse];
-	[memory addObject:immediateStorage];
+	[self.memory addObject:numberToUse];
+	[self.memory addObject:immediateStorage];
 	
 	[instructionToUse release];
 	
@@ -390,7 +390,7 @@
 	// would be otherwise... maybe we will get lucky?
 	
 	id<VCInstructionDelegate> delegateToUse = 
-	[delegateCache delegateForTextualCode:command];
+	[self.delegateCache delegateForTextualCode:self.command];
 	
 	int8_t opcodeToSet = [delegateToUse instructionOperationCode];
 	
@@ -398,27 +398,27 @@
 	instructionToUse.opCode = opcodeToSet;
 	
 	instructionToUse.fieldZero = 
-	[[currentSeperatedInstruction objectAtIndex:1] integerValue];
+	[[self.currentSeperatedInstruction objectAtIndex:1] integerValue];
 	
 	instructionToUse.fieldOne = 
-	[[currentSeperatedInstruction objectAtIndex:2] integerValue];
+	[[self.currentSeperatedInstruction objectAtIndex:2] integerValue];
 	
 	id immediateStorage;
 	
 	NSNumber *numberToUse = 
 	[NSNumber numberWithInteger:instructionToUse.numericalRepresentation];
 	
-	if ([[currentSeperatedInstruction objectAtIndex:3] hasPrefix:@"*"]) {
-		immediateStorage = [currentSeperatedInstruction objectAtIndex:3]; 
+	if ([[self.currentSeperatedInstruction objectAtIndex:3] hasPrefix:@"*"]) {
+		immediateStorage = [self.currentSeperatedInstruction objectAtIndex:3];
 	} else {
 		immediateStorage = 
-		[NSNumber numberWithInteger:[[currentSeperatedInstruction objectAtIndex:3] 
+		[NSNumber numberWithInteger:[[self.currentSeperatedInstruction objectAtIndex:3]
 																 integerValue]];
 	}
 	
 	
-	[memory addObject:numberToUse];
-	[memory addObject:immediateStorage];
+	[self.memory addObject:numberToUse];
+	[self.memory addObject:immediateStorage];
 	
 	[instructionToUse release];
 	
@@ -428,7 +428,7 @@
 	// Class 4 of our instructions.
 	
 	id<VCInstructionDelegate> delegateToUse = 
-	[delegateCache delegateForTextualCode:command];
+	[self.delegateCache delegateForTextualCode:self.command];
 	
 	int8_t opcodeToSet = [delegateToUse instructionOperationCode];
 	
@@ -436,12 +436,12 @@
 	instructionToUse.opCode = opcodeToSet;
 	
 	instructionToUse.fieldZero = 
-	[[currentSeperatedInstruction objectAtIndex:1] integerValue];
+	[[self.currentSeperatedInstruction objectAtIndex:1] integerValue];
 	
 	NSNumber *numberToUse = 
 	[NSNumber numberWithInteger:instructionToUse.numericalRepresentation];
 	
-	[memory addObject:numberToUse];
+	[self.memory addObject:numberToUse];
 	
 	[instructionToUse release];
 	
@@ -450,7 +450,7 @@
 - (void) processCommandClass5 {
 	// Class 5
 	id<VCInstructionDelegate> delegateToUse = 
-	[delegateCache delegateForTextualCode:command];
+	[self.delegateCache delegateForTextualCode:self.command];
 	
 	int8_t opcodeToSet = [delegateToUse instructionOperationCode];
 	
@@ -458,15 +458,15 @@
 	instructionToUse.opCode = opcodeToSet;
 	
 	instructionToUse.fieldZero = 
-	[[currentSeperatedInstruction objectAtIndex:1] integerValue];
+	[[self.currentSeperatedInstruction objectAtIndex:1] integerValue];
 	
 	instructionToUse.fieldOne = 
-	[[currentSeperatedInstruction objectAtIndex:2] integerValue];
+	[[self.currentSeperatedInstruction objectAtIndex:2] integerValue];
 	
 	NSNumber *numberToUse = 
 	[NSNumber numberWithInteger:instructionToUse.numericalRepresentation];
 	
-	[memory addObject:numberToUse];
+	[self.memory addObject:numberToUse];
 	
 	[instructionToUse release];
 	
@@ -475,7 +475,7 @@
 - (void) processCommandClass6 {
 	// Class 6 of our instructions...
 	id<VCInstructionDelegate> delegateToUse = 
-	[delegateCache delegateForTextualCode:command];
+	[self.delegateCache delegateForTextualCode:self.command];
 	
 	int8_t opcodeToSet = [delegateToUse instructionOperationCode];
 	
@@ -487,17 +487,17 @@
 	
 	id immediateStorage;
 	
-	if ([[currentSeperatedInstruction objectAtIndex:1] hasPrefix:@"*"]) {
-		immediateStorage = [currentSeperatedInstruction objectAtIndex:1];
+	if ([[self.currentSeperatedInstruction objectAtIndex:1] hasPrefix:@"*"]) {
+		immediateStorage = [self.currentSeperatedInstruction objectAtIndex:1];
 	} else {
 		immediateStorage = 
-		[NSNumber numberWithInteger:[[currentSeperatedInstruction objectAtIndex:1] 
+		[NSNumber numberWithInteger:[[self.currentSeperatedInstruction objectAtIndex:1]
 																 integerValue]];
 	}
 	
 	
-	[memory addObject:numberToUse];
-	[memory addObject:immediateStorage];
+	[self.memory addObject:numberToUse];
+	[self.memory addObject:immediateStorage];
 	
 	[instructionToUse release];
 	
@@ -506,7 +506,7 @@
 - (void) processCommandClass7 {
 	// Class 7 of our instructions...
 	id<VCInstructionDelegate> delegateToUse = 
-	[delegateCache delegateForTextualCode:command];
+	[self.delegateCache delegateForTextualCode:self.command];
 	
 	int8_t opcodeToSet = [delegateToUse instructionOperationCode];
 	
@@ -514,15 +514,15 @@
 	instructionToUse.opCode = opcodeToSet;
 	
 	instructionToUse.fieldZero = 
-	[[currentSeperatedInstruction objectAtIndex:1] integerValue];
+	[[self.currentSeperatedInstruction objectAtIndex:1] integerValue];
 	
 	instructionToUse.fieldOne = 
-	[[currentSeperatedInstruction objectAtIndex:2] integerValue];
+	[[self.currentSeperatedInstruction objectAtIndex:2] integerValue];
 	
 	NSNumber *numberToUse = 
 	[NSNumber numberWithInteger:instructionToUse.numericalRepresentation];
 	
-	[memory addObject:numberToUse];
+	[self.memory addObject:numberToUse];
 	
 	[instructionToUse release];
 	
@@ -531,24 +531,24 @@
 - (void) processCommandClass8 {
 	// Class 8
 	id<VCInstructionDelegate> delegateToUse = 
-	[delegateCache delegateForTextualCode:command];
+	[self.delegateCache delegateForTextualCode:self.command];
 	
 	int8_t opcodeToSet = [delegateToUse instructionOperationCode];
 	
 	VCInstruction *instructionToUse = [[VCInstruction alloc] init];
 	instructionToUse.opCode = opcodeToSet;
 	instructionToUse.fieldZero = 
-	[[currentSeperatedInstruction objectAtIndex:2] integerValue];
+	[[self.currentSeperatedInstruction objectAtIndex:2] integerValue];
 	
 	NSNumber *numberToUse = 
 	[NSNumber numberWithInteger:instructionToUse.numericalRepresentation];
 	
 	NSNumber *immediateStorage = 
-	[NSNumber numberWithInteger:[[currentSeperatedInstruction objectAtIndex:1] 
+	[NSNumber numberWithInteger:[[self.currentSeperatedInstruction objectAtIndex:1]
 															 integerValue]];
 	
-	[memory addObject:numberToUse];
-	[memory addObject:immediateStorage];
+	[self.memory addObject:numberToUse];
+	[self.memory addObject:immediateStorage];
 	
 	[instructionToUse release];
 	
@@ -558,11 +558,11 @@
 	// Label processing
 	// We put it into our actual labels cache
 	
-	NSAssert(![actualLabelCache valueForKey:command], @"Label already exists!");
+	NSAssert(![self.actualLabelCache valueForKey:self.command], @"Label already exists!");
 	
-	NSNumber *labelAddress = [NSNumber numberWithInteger:memory.count];
+	NSNumber *labelAddress = [NSNumber numberWithInteger:self.memory.count];
 	
-	[actualLabelCache setValue:labelAddress forKey:command];
+	[self.actualLabelCache setValue:labelAddress forKey:self.command];
 	
 }
 
