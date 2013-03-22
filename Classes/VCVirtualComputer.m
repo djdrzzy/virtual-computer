@@ -36,21 +36,14 @@
 	self = [super init];
 	
 	if(self != nil) {
-		self.registerTable = [[[VCRegisters alloc] initWithAssociatedComputer:self] autorelease];
-		self.memoryTable = [[[VCMemory alloc] initWithAssociatedComputer:self] autorelease];
-		self.delegateCache = [[[VCInstructionDelegateCache alloc] init] autorelease];
+		self.registerTable = [[VCRegisters alloc] initWithAssociatedComputer:self];
+		self.memoryTable = [[VCMemory alloc] initWithAssociatedComputer:self];
+		self.delegateCache = [[VCInstructionDelegateCache alloc] init];
 	}
 	   
 	   return self; 
 }
 
--(void) dealloc {
-	self.registerTable = nil;
-	self.memoryTable = nil;
-	self.delegateCache = nil;
-	
-	[super dealloc];
-}
 
 -(void) loadState:(NSDictionary*)plist {
 	// Construct the state for the computer
@@ -59,7 +52,9 @@
 }
 
 -(NSDictionary*)state {
-	
+	// TODO: Do a deep copy. This is doing a bad shallow copy
+    
+    
 	NSArray *memoryArray = [self.memoryTable state];
 	NSDictionary *registerDictionary = [self.registerTable state];
 	
@@ -68,7 +63,7 @@
 	[plistToConstruct setValue:memoryArray forKey:@"memory"];
 	[plistToConstruct setValue:registerDictionary forKey:@"registers"];
 	
-	return [[[NSDictionary alloc] initWithDictionary:plistToConstruct copyItems:YES] autorelease];
+	return [[NSDictionary alloc] initWithDictionary:plistToConstruct copyItems:YES];
 }
 
 

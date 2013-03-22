@@ -27,53 +27,47 @@
 
 int main(int argc, char *argv[]) {
 	
-	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+	@autoreleasepool {
 	
 	
-	DDArgumentManager *argumentManager = 
-	[[[DDArgumentManager alloc] initWithArgCount:argc 
-											argv:argv 
-									  flagsToUse:[NSArray arrayWithObjects:
-												  @"-i", // Input file
-												  @"-o", // Output file
-												  nil]] autorelease];
-	
-	
-	NSString *inputFile = [argumentManager associatedValueForFlag:@"-i"];
-	NSString *outputFile = [argumentManager associatedValueForFlag:@"-o"];
-	
-	if (!inputFile) {
-		[DDUtility print:@"You must specify an input file.\nUsage: vcassem -i input -o output"];
-		return 0;
-	}
-	
-	if (!outputFile) {
-		outputFile = @"a.out";
-	}
-	
-	NSMutableString *inputString = [[NSMutableString alloc] initWithContentsOfFile:inputFile 
-																		  encoding:NSUTF8StringEncoding 
-																			 error:NULL];
+		DDArgumentManager *argumentManager = 
+		[[DDArgumentManager alloc] initWithArgCount:argc 
+												argv:argv 
+										  flagsToUse:@[@"-i", // Input file
+													  @"-o"]];
 		
-	VCAssemblerHelper *helper = [[VCAssemblerHelper alloc] init];;
+		
+		NSString *inputFile = [argumentManager associatedValueForFlag:@"-i"];
+		NSString *outputFile = [argumentManager associatedValueForFlag:@"-o"];
+		
+		if (!inputFile) {
+			[DDUtility print:@"You must specify an input file.\nUsage: vcassem -i input -o output"];
+			return 0;
+		}
+		
+		if (!outputFile) {
+			outputFile = @"a.out";
+		}
+		
+		NSMutableString *inputString = [[NSMutableString alloc] initWithContentsOfFile:inputFile 
+																			  encoding:NSUTF8StringEncoding 
+																				 error:NULL];
+			
+		VCAssemblerHelper *helper = [[VCAssemblerHelper alloc] init];;
 
-	NSMutableArray *rowsToParse = 
-	[[NSMutableArray alloc] initWithArray:[inputString componentsSeparatedByString:@"\n"]];
+		NSMutableArray *rowsToParse = 
+		[[NSMutableArray alloc] initWithArray:[inputString componentsSeparatedByString:@"\n"]];
+		
+		// We now have prepped the input for parsing. So construct a computer
+		
+		NSMutableDictionary *assembledComputer = [helper parseInput:rowsToParse];
+		
+		// And write it out
+		[assembledComputer writeToFile:outputFile atomically:YES];
+		
+		
 	
-	// We now have prepped the input for parsing. So construct a computer
-	
-	NSMutableDictionary *assembledComputer = [[helper parseInput:rowsToParse] retain];
-	
-	// And write it out
-	[assembledComputer writeToFile:outputFile atomically:YES];
-	
-	[rowsToParse release];
-	[assembledComputer release];
-	[inputString release];
-	
-	[helper release];
-	
-	[pool drain];
+	}
 	return 0;	
 }
 

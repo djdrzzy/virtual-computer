@@ -26,52 +26,49 @@
 
 int main(int argc, char *argv[])
 {	
-	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+	@autoreleasepool {
 	
-	DDArgumentManager *argumentManager = 
-	[[[DDArgumentManager alloc] initWithArgCount:argc 
-											argv:argv 
-									  flagsToUse:[NSArray arrayWithObjects:
-												  @"-i", // Input file
-												  @"-o", // Output file
-												  @"-c",  // Number of cycles
-												  nil]] autorelease];
+		DDArgumentManager *argumentManager = 
+		[[DDArgumentManager alloc] initWithArgCount:argc 
+												argv:argv 
+										  flagsToUse:@[@"-i", // Input file
+													  @"-o", // Output file
+													  @"-c"]];
 
 
-	NSString *inputFile = [argumentManager associatedValueForFlag:@"-i"];
-	NSString *outputFile = [argumentManager associatedValueForFlag:@"-o"];
-	NSString *cycles = [argumentManager associatedValueForFlag:@"-c"];
-	
-	if (!inputFile) {
-		[DDUtility print:@"You must specify an input file.\nUsage: virtualComputer -i input -o output -c cycles"];
-		return 0;
-	}
-	
-	if (!outputFile) {
-		outputFile = @"vc.state";
-	}
-	
-	if (!cycles) {
-		cycles = @"-1";
-	}
-	
-	
-	VCVirtualComputer *virtualComputer = [[VCVirtualComputer alloc] init];
-
-	virtualComputer.cyclesToRun = [cycles intValue];
-
-	NSDictionary *stateToLoad = [NSDictionary dictionaryWithContentsOfFile:inputFile];
-	[virtualComputer loadState:stateToLoad];
-
-	
-	[virtualComputer compute];
-	
-	
-	NSDictionary *stateToReturn = [virtualComputer state];	
-	[stateToReturn writeToFile:outputFile atomically:YES];
-	
-	[virtualComputer release];
+		NSString *inputFile = [argumentManager associatedValueForFlag:@"-i"];
+		NSString *outputFile = [argumentManager associatedValueForFlag:@"-o"];
+		NSString *cycles = [argumentManager associatedValueForFlag:@"-c"];
 		
-	[pool drain];
+		if (!inputFile) {
+			[DDUtility print:@"You must specify an input file.\nUsage: virtualComputer -i input -o output -c cycles"];
+			return 0;
+		}
+		
+		if (!outputFile) {
+			outputFile = @"vc.state";
+		}
+		
+		if (!cycles) {
+			cycles = @"-1";
+		}
+		
+		
+		VCVirtualComputer *virtualComputer = [[VCVirtualComputer alloc] init];
+
+		virtualComputer.cyclesToRun = [cycles intValue];
+
+		NSDictionary *stateToLoad = [NSDictionary dictionaryWithContentsOfFile:inputFile];
+		[virtualComputer loadState:stateToLoad];
+
+		
+		[virtualComputer compute];
+		
+		
+		NSDictionary *stateToReturn = [virtualComputer state];	
+		[stateToReturn writeToFile:outputFile atomically:YES];
+		
+		
+	}
 	return 0;	
 }

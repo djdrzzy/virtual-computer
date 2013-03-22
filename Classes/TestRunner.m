@@ -66,12 +66,10 @@
 	 instruction];
 	
 	NSArray *vcassemArgs = 
-	[NSArray arrayWithObjects:
-	 @"-i", 
+	@[@"-i", 
 	 instructionAssemblyFile, 
 	 @"-o", 
-	 compiledInstructionFile, 
-	 nil];
+	 compiledInstructionFile];
 	
 	NSTask *vcassemTask = [[NSTask alloc] init];
 	[vcassemTask setLaunchPath:
@@ -82,7 +80,6 @@
 	[vcassemTask setArguments:vcassemArgs];
 	[vcassemTask launch];
 	[vcassemTask waitUntilExit];
-	[vcassemTask release];
 	
 	
 	
@@ -91,12 +88,10 @@
 	[NSString stringWithFormat:@"%@/%@_state.final", testDirectory, instruction];
 	
 	NSArray *virtualComputerArgs = 
-	[NSArray arrayWithObjects:
-	 @"-i", 
+	@[@"-i", 
 	 compiledInstructionFile, 
 	 @"-o", 
-	 executedInstructionFile, 
-	 nil];
+	 executedInstructionFile];
 	
 	NSTask *virtualComputerTask = [[NSTask alloc] init];
 	[virtualComputerTask setLaunchPath:
@@ -107,7 +102,6 @@
 	[virtualComputerTask setArguments:virtualComputerArgs];
 	[virtualComputerTask launch];
 	[virtualComputerTask waitUntilExit];
-	[virtualComputerTask release];
 	
 	
 	

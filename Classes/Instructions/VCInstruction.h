@@ -25,9 +25,9 @@
 @interface VCInstruction : NSObject
 
 @property (nonatomic, readwrite, assign) int32_t numericalRepresentation;
-@property (nonatomic, readwrite, assign) VCRegisters *registerTable;
-@property (nonatomic, readwrite, assign) VCMemory *memoryTable;
-@property (nonatomic, readwrite, assign) VCInstructionDelegateCache *delegateCache;
+@property (nonatomic, readwrite, unsafe_unretained) VCRegisters *registerTable;
+@property (nonatomic, readwrite, unsafe_unretained) VCMemory *memoryTable;
+@property (nonatomic, readwrite, weak) VCInstructionDelegateCache *delegateCache;
 
 @property (nonatomic, readwrite) int8_t opCode;
 @property (nonatomic, readwrite) int8_t fieldZero;

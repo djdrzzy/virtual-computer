@@ -26,8 +26,8 @@
 #import "VCVirtualComputer.h"
 
 @interface VCMemory ()
-@property (nonatomic, readwrite, retain) NSMutableArray        *memoryTable;
-@property (nonatomic, readwrite, assign) VCVirtualComputer   *associatedComputer;
+@property (nonatomic, readwrite, strong) NSMutableArray        *memoryTable;
+@property (nonatomic, readwrite, weak) VCVirtualComputer   *associatedComputer;
 @end
 
 @implementation VCMemory
@@ -40,15 +40,14 @@
 	NSMutableArray *memoryTableToMake = [NSMutableArray arrayWithArray:newMemoryTable];
 	
 	for(u_int32_t i = 0; i < [memoryTableToMake count]; i++) {
-		int currentMemoryAddressValue = [[memoryTableToMake objectAtIndex:i] intValue];
+		int currentMemoryAddressValue = [memoryTableToMake[i] intValue];
 		VCInstruction *instructionToAdd = 
 		[[VCInstruction alloc] initWithNumericalRepresentation:currentMemoryAddressValue
 												 registerTable:self.associatedComputer.registerTable
 												   memoryTable:self
 												 delegateCache:self.associatedComputer.delegateCache];
 		
-		[memoryTableToMake replaceObjectAtIndex:i withObject:instructionToAdd];
-		[instructionToAdd release];
+		memoryTableToMake[i] = instructionToAdd;
 	}
 	
 	self.memoryTable = memoryTableToMake;
@@ -60,7 +59,7 @@
 	if (self != nil) {	
 		self.associatedComputer = newAssociatedComputer;
 		[self loadStateWithMemoryTable:
-			[[[NSMutableArray alloc] initWithObjects:[NSNumber numberWithInteger:0x00000000], nil] autorelease]];
+			[[NSMutableArray alloc] initWithObjects:@0x00000000, nil]];
 	}
 	
 	return self;	
@@ -73,9 +72,7 @@
 
 - (void) dealloc
 {
-	self.memoryTable = nil;
 	self.associatedComputer = nil;
-	[super dealloc];
 }
 
 
@@ -86,17 +83,16 @@
 											   memoryTable:self
 											 delegateCache:self.associatedComputer.delegateCache];
 	
-	[self.memoryTable replaceObjectAtIndex:(theAddress % self.memoryTable.count) withObject:instructionToAdd];	
-	[instructionToAdd release];
+	(self.memoryTable)[(theAddress % self.memoryTable.count)] = instructionToAdd;	
 }
 
 
 -(int32_t)valueOfMemoryAddress:(u_int32_t)theAddress {
-	return [[self.memoryTable objectAtIndex:theAddress % self.memoryTable.count] numericalRepresentation];
+	return [(self.memoryTable)[theAddress % self.memoryTable.count] numericalRepresentation];
 }
 
 -(VCInstruction*)instructionAtMemoryAddress:(u_int32_t)theAddress {
-	return [self.memoryTable objectAtIndex:theAddress % self.memoryTable.count];
+	return (self.memoryTable)[theAddress % self.memoryTable.count];
 }
 
 -(u_int32_t) lengthOfAddressSpace {
@@ -106,7 +102,7 @@
 -(NSArray*) state {
 	NSMutableArray *memoryArray = [NSMutableArray array];
 	for(VCInstruction *instruction in self.memoryTable) {
-		[memoryArray addObject:[NSNumber numberWithInt:[instruction numericalRepresentation]]];
+		[memoryArray addObject:@([instruction numericalRepresentation])];
 	}
 	return memoryArray;
 }

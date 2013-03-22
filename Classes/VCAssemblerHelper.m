@@ -1,16 +1,16 @@
 /**
  * Copyright (c) 2010 Daniel Drzimotta (djdrzzy@gmail.com)
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -26,22 +26,22 @@
 #import "VCInstructionDelegateCache.h"
 
 @interface VCAssemblerHelper ()
-@property (nonatomic, retain) NSMutableDictionary *actualLabelCache;
+@property (nonatomic, strong) NSMutableDictionary *actualLabelCache;
 
-@property (nonatomic, retain) NSNumber *programCounter;
-@property (nonatomic, retain) NSNumber *haltFlag;
+@property (nonatomic, strong) NSNumber *programCounter;
+@property (nonatomic, strong) NSNumber *haltFlag;
 @property (nonatomic, copy) NSString *input;
 @property (nonatomic, copy) NSString *output;
-@property (nonatomic, retain) NSMutableArray *individualRegisters;
-@property (nonatomic, retain) NSMutableArray *memory;
+@property (nonatomic, strong) NSMutableArray *individualRegisters;
+@property (nonatomic, strong) NSMutableArray *memory;
 
-@property (nonatomic, retain) VCInstructionDelegateCache *delegateCache;
+@property (nonatomic, strong) VCInstructionDelegateCache *delegateCache;
 
-@property (nonatomic, retain) NSArray *currentSeperatedInstruction;
+@property (nonatomic, strong) NSArray *currentSeperatedInstruction;
 @property (nonatomic, copy) NSString *currentInstructionToParse;
 @property (nonatomic, copy) NSString *command;
 
-@property (nonatomic, retain) NSDictionary *commandMapper;
+@property (nonatomic, strong) NSDictionary *commandMapper;
 
 -(NSDictionary*) constructCommandMapper;
 -(NSMutableArray*)removeLinesWithHash:(NSMutableArray*)arrayToClean;
@@ -54,7 +54,7 @@
 	self = [super init];
 	
 	if(self != nil) {
-		self.actualLabelCache = [[[NSMutableDictionary alloc] init] autorelease];
+		self.actualLabelCache = [[NSMutableDictionary alloc] init];
 		self.commandMapper = [self constructCommandMapper];
 	}
 	
@@ -62,50 +62,30 @@
 }
 
 
--(void) dealloc {
-	self.actualLabelCache = nil;
-	self.commandMapper = nil;
-	
-	self.delegateCache = nil;
-	
-	self.programCounter = nil;
-	self.haltFlag = nil;
-	self.input = nil;
-	self.output = nil;
-	
-	self.individualRegisters = nil;
-	self.memory = nil;
-	
-	self.currentSeperatedInstruction = nil;
-	self.currentInstructionToParse = nil;
-	self.command = nil;
-	
-	[super dealloc];
-}
 
 -(NSMutableDictionary*)parseInput:(NSMutableArray*)arrayToParse {
-	NSMutableDictionary *constructedComputer = 
-	[[[NSMutableDictionary alloc] init] autorelease];
+	NSMutableDictionary *constructedComputer =
+	[[NSMutableDictionary alloc] init];
 	
 	// First we want to remove all lines that start with a #
-	NSMutableArray *rowsWithNoHashes = 
+	NSMutableArray *rowsWithNoHashes =
 	[self removeLinesWithHash:arrayToParse];
 	
 	// Now remove all lines with nothing on them
-	NSMutableArray *rowsWithNoEmpties = 
+	NSMutableArray *rowsWithNoEmpties =
 	[self removeEmptyLines:rowsWithNoHashes];
 	
 	// Our delegate cache to get our delegates from our instruction textual codes
-	self.delegateCache = [[[VCInstructionDelegateCache alloc] init] autorelease];
+	self.delegateCache = [[VCInstructionDelegateCache alloc] init];
 	
 	// Stuff to add in our computer later, default values
-	self.programCounter = [NSNumber numberWithInt:0];
-	self.haltFlag = [NSNumber numberWithBool:NO];
+	self.programCounter = @0;
+	self.haltFlag = @NO;
 	self.input = @"";
 	self.output = @"";
 	
-	self.individualRegisters = [[[NSMutableArray alloc] init] autorelease];
-	self.memory = [[[NSMutableArray alloc] init] autorelease];
+	self.individualRegisters = [[NSMutableArray alloc] init];
+	self.memory = [[NSMutableArray alloc] init];
 	
 	for(NSString *instructionToParse in rowsWithNoEmpties) {
 		
@@ -113,10 +93,10 @@
 		self.currentInstructionToParse = instructionToParse;
 		
 		// First divide our string by whitespace and then get the first field.
-		self.currentSeperatedInstruction = 
+		self.currentSeperatedInstruction =
 		[instructionToParse componentsSeparatedByString:@" "];
 		
-		self.command = [self.currentSeperatedInstruction objectAtIndex:0];
+		self.command = (self.currentSeperatedInstruction)[0];
 		
 		NSString *methodToUse = nil;
 		
@@ -126,25 +106,28 @@
 			methodToUse = [self.commandMapper valueForKey:self.command];
 		}
 		
+#       pragma clang diagnostic push
+#       pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        
 		[self performSelector:NSSelectorFromString(methodToUse)];
+#       pragma clang diagnostic pop
 	}
 	
 	
-	// Now iterate over our memory replacing parts that if they're strings and 
+	// Now iterate over our memory replacing parts that if they're strings and
 	// start with * with their actual label cache values
 	
 	for(uint i = 0; i < self.memory.count; i++) {
-		id memoryValue = [self.memory objectAtIndex:i];
+		id memoryValue = (self.memory)[i];
 		
-		if ([memoryValue isKindOfClass:[NSString class]] 
-				&& [memoryValue hasPrefix:@"*"]) {
+		if ([memoryValue isKindOfClass:[NSString class]]
+            && [memoryValue hasPrefix:@"*"]) {
 			
-			[self.memory replaceObjectAtIndex:i
-												withObject:[_actualLabelCache valueForKey:memoryValue]];
+			(self.memory)[i] = [_actualLabelCache valueForKey:memoryValue];
 		}
 	}
 	
-	NSMutableDictionary *registers = [[[NSMutableDictionary alloc] init] autorelease];
+	NSMutableDictionary *registers = [[NSMutableDictionary alloc] init];
 	[registers setValue:self.programCounter forKey:@"programCounter"];
 	[registers setValue:self.haltFlag forKey:@"haltFlag"];
 	[registers setValue:self.input forKey:@"input"];
@@ -159,11 +142,11 @@
 
 -(NSMutableArray*)removeLinesWithHash:(NSMutableArray*)arrayToClean {
 	
-	NSMutableArray *cleanedArray = [[[NSMutableArray alloc] init] autorelease];
+	NSMutableArray *cleanedArray = [[NSMutableArray alloc] init];
 	
 	for(uint i = 0; i < arrayToClean.count; i++) {
-		if (![[arrayToClean objectAtIndex:i] hasPrefix:@"#"]) {
-			[cleanedArray addObject:[arrayToClean objectAtIndex:i]];
+		if (![arrayToClean[i] hasPrefix:@"#"]) {
+			[cleanedArray addObject:arrayToClean[i]];
 		}
 	}
 	
@@ -172,86 +155,84 @@
 
 -(NSMutableArray*)removeEmptyLines:(NSMutableArray*)arrayToClean {
 	
-	NSMutableArray *cleanedArray = [[[NSMutableArray alloc] init] autorelease];
+	NSMutableArray *cleanedArray = [[NSMutableArray alloc] init];
 	
 	for(uint i = 0; i < arrayToClean.count; i++) {
-		if (![[[arrayToClean objectAtIndex:i] stringByTrimmingCharactersInSet:
-					 [NSCharacterSet whitespaceCharacterSet]] isEqualToString:@""]) {
-			[cleanedArray addObject:[arrayToClean objectAtIndex:i]];
+		if (![[arrayToClean[i] stringByTrimmingCharactersInSet:
+               [NSCharacterSet whitespaceCharacterSet]] isEqualToString:@""]) {
+			[cleanedArray addObject:arrayToClean[i]];
 		}
 	}
 	
-	return cleanedArray;	
+	return cleanedArray;
 }
 
 -(NSDictionary*) constructCommandMapper {
-	return [NSDictionary dictionaryWithObjectsAndKeys:
-													 @"processCommandPC", @"PC",
-													 @"processCommandHF",@"HF",
-													 @"processCommandINPUT", @"INPUT",
-													 @"processCommandOUTPUT",@"OUTPUT",
-													 @"processCommandREG", @"REG",
-													 @"processCommandMEM", @"MEM",
-													 @"processCommandPADMEM", @"PADMEM",
-													 
-													 @"processCommandClass0", @"NOP",
-													 @"processCommandClass0", @"HALT",
-													 
-													 @"processCommandClass1", @"ADD",
-													 @"processCommandClass1", @"SUB",
-													 @"processCommandClass1", @"MUL",
-													 @"processCommandClass1", @"DIV",
-													 @"processCommandClass1", @"AND",
-													 @"processCommandClass1", @"OR",
-													 @"processCommandClass1", @"XOR",
-													 @"processCommandClass1", @"SLT",
-													 @"processCommandClass1", @"SLL",
-													 @"processCommandClass1", @"SRL",
-													 
-													 @"processCommandClass2", @"ADDI",
-													 @"processCommandClass2", @"SUBI",
-													 @"processCommandClass2", @"ANDI",
-													 @"processCommandClass2", @"ORI",
-													 @"processCommandClass2", @"SLTI",
-													 
-													 @"processCommandClass3", @"BEQ",
-													 @"processCommandClass3", @"BNE",
-													 @"processCommandClass3", @"BGT",
-													 @"processCommandClass3", @"BGE",
-													 @"processCommandClass3", @"BLT",
-													 @"processCommandClass3", @"BLE",
-													 
-													 @"processCommandClass4", @"IN",
-													 @"processCommandClass4", @"OUT",
-													 @"processCommandClass4", @"JMPR",
-													 
-													 @"processCommandClass5", @"SW",
-													 @"processCommandClass5", @"LW",
-													 
-													 @"processCommandClass6", @"JMP",
-													 
-													 @"processCommandClass7", @"NOT",
-													 
-													 @"processCommandClass8", @"LWI",
-													 @"processCommandClass8", @"SWI",
-													 
-													 @"processCommandForLabelProcessing", @"*",
-													 nil];
+	return @{@"PC": @"processCommandPC",
+            @"HF": @"processCommandHF",
+            @"INPUT": @"processCommandINPUT",
+            @"OUTPUT": @"processCommandOUTPUT",
+            @"REG": @"processCommandREG",
+            @"MEM": @"processCommandMEM",
+            @"PADMEM": @"processCommandPADMEM",
+            
+            @"NOP": @"processCommandClass0",
+            @"HALT": @"processCommandClass0",
+            
+            @"ADD": @"processCommandClass1",
+            @"SUB": @"processCommandClass1",
+            @"MUL": @"processCommandClass1",
+            @"DIV": @"processCommandClass1",
+            @"AND": @"processCommandClass1",
+            @"OR": @"processCommandClass1",
+            @"XOR": @"processCommandClass1",
+            @"SLT": @"processCommandClass1",
+            @"SLL": @"processCommandClass1",
+            @"SRL": @"processCommandClass1",
+            
+            @"ADDI": @"processCommandClass2",
+            @"SUBI": @"processCommandClass2",
+            @"ANDI": @"processCommandClass2",
+            @"ORI": @"processCommandClass2",
+            @"SLTI": @"processCommandClass2",
+            
+            @"BEQ": @"processCommandClass3",
+            @"BNE": @"processCommandClass3",
+            @"BGT": @"processCommandClass3",
+            @"BGE": @"processCommandClass3",
+            @"BLT": @"processCommandClass3",
+            @"BLE": @"processCommandClass3",
+            
+            @"IN": @"processCommandClass4",
+            @"OUT": @"processCommandClass4",
+            @"JMPR": @"processCommandClass4",
+            
+            @"SW": @"processCommandClass5",
+            @"LW": @"processCommandClass5",
+            
+            @"JMP": @"processCommandClass6",
+            
+            @"NOT": @"processCommandClass7",
+            
+            @"LWI": @"processCommandClass8",
+            @"SWI": @"processCommandClass8",
+            
+            @"*": @"processCommandForLabelProcessing"};
 }
 
 - (void) processCommandPC {
 	// Here we just automatically overwrite whatever programCounter was
 	self.programCounter =
-	[NSNumber numberWithInteger:[[_currentSeperatedInstruction objectAtIndex:1] 
-															 integerValue]];
+	@([_currentSeperatedInstruction[1]
+                                 integerValue]);
 	
 }
 
 - (void) processCommandHF {
 	// Same with the haltFlag
 	self.haltFlag=
-	[NSNumber numberWithBool:[[_currentSeperatedInstruction objectAtIndex:1] 
-														boolValue]];
+	@([_currentSeperatedInstruction[1]
+                              boolValue]);
 	
 }
 
@@ -269,9 +250,9 @@
 
 - (void) processCommandREG {
 	// We add a register with the supplied initial value
-	NSNumber *newRegister = 
-	[NSNumber numberWithInteger:[[self.currentSeperatedInstruction objectAtIndex:1]
-															 integerValue]];
+	NSNumber *newRegister =
+	@([(self.currentSeperatedInstruction)[1]
+                                 integerValue]);
 	
 	[self.individualRegisters addObject:newRegister];
 	
@@ -279,9 +260,9 @@
 
 - (void) processCommandMEM {
 	// We add a memory location with the supplied value
-	NSNumber *newMem = 
-	[NSNumber numberWithInteger:[[self.currentSeperatedInstruction objectAtIndex:1]
-															 integerValue]];
+	NSNumber *newMem =
+	@([(self.currentSeperatedInstruction)[1]
+                                 integerValue]);
 	
 	[self.memory addObject:newMem];
 	
@@ -290,11 +271,11 @@
 - (void) processCommandPADMEM {
 	// We pad the memory with nops for however many specified
 	
-	NSInteger numberOfNops = [[self.currentSeperatedInstruction objectAtIndex:1]
-														integerValue];
+	NSInteger numberOfNops = [(self.currentSeperatedInstruction)[1]
+                              integerValue];
 	
 	for(NSInteger i = 0; i < numberOfNops; i++) {
-		NSNumber *nop = [NSNumber numberWithInteger:0];
+		NSNumber *nop = @0;
 		[self.memory addObject:nop];
 	}
 	
@@ -304,29 +285,28 @@
 	// Class 0 of our instructions. Their format is just their command
 	// EX: HALT
 	// There are no operands
-	id<VCInstructionDelegate> delegateToUse = 
+	id<VCInstructionDelegate> delegateToUse =
 	[self.delegateCache delegateForTextualCode:self.command];
 	
 	int8_t opcodeToSet = [delegateToUse instructionOperationCode];
 	VCInstruction *instructionToUse = [[VCInstruction alloc] init];
 	instructionToUse.opCode = opcodeToSet;
 	
-	NSNumber *numberToUse = 
-	[NSNumber numberWithInteger:instructionToUse.numericalRepresentation];
+	NSNumber *numberToUse =
+	@(instructionToUse.numericalRepresentation);
 	
 	[self.memory addObject:numberToUse];
 	
-	[instructionToUse release];
 	
 }
 
 - (void) processCommandClass1 {
 	// Class 1 of our instructions. These only deal with registers. Field 1 of the
-	// instruction is the first source. Field 2 of the instruction is the second 
-	// source. Field 3 is the destination. We only deal with one memory location 
+	// instruction is the first source. Field 2 of the instruction is the second
+	// source. Field 3 is the destination. We only deal with one memory location
 	// with this class. They're nice.
 	
-	id<VCInstructionDelegate> delegateToUse = 
+	id<VCInstructionDelegate> delegateToUse =
 	[self.delegateCache delegateForTextualCode:self.command];
 	
 	int8_t opcodeToSet = [delegateToUse instructionOperationCode];
@@ -334,30 +314,29 @@
 	VCInstruction *instructionToUse = [[VCInstruction alloc] init];
 	instructionToUse.opCode = opcodeToSet;
 	
-	instructionToUse.fieldZero = 
-	[[self.currentSeperatedInstruction objectAtIndex:1] intValue];
+	instructionToUse.fieldZero =
+	[(self.currentSeperatedInstruction)[1] intValue];
 	
-	instructionToUse.fieldOne = 
-	[[self.currentSeperatedInstruction objectAtIndex:2] intValue];
+	instructionToUse.fieldOne =
+	[(self.currentSeperatedInstruction)[2] intValue];
 	
-	instructionToUse.fieldTwo = 
-	[[self.currentSeperatedInstruction objectAtIndex:3] intValue];
+	instructionToUse.fieldTwo =
+	[(self.currentSeperatedInstruction)[3] intValue];
 	
-	NSNumber *numberToUse = 
-	[NSNumber numberWithInteger:instructionToUse.numericalRepresentation];
+	NSNumber *numberToUse =
+	@(instructionToUse.numericalRepresentation);
 	
 	[self.memory addObject:numberToUse];
 	
-	[instructionToUse release];
 	
 }
 
 - (void) processCommandClass2 {
-	// Class 2 of our instructions. These are mainly the same as class 1 except 
-	// they use an immediate value and store it right after the constructed 
+	// Class 2 of our instructions. These are mainly the same as class 1 except
+	// they use an immediate value and store it right after the constructed
 	// instruction.
 	
-	id<VCInstructionDelegate> delegateToUse = 
+	id<VCInstructionDelegate> delegateToUse =
 	[self.delegateCache delegateForTextualCode:self.command];
 	
 	int8_t opcodeToSet = [delegateToUse instructionOperationCode];
@@ -365,31 +344,30 @@
 	VCInstruction *instructionToUse = [[VCInstruction alloc] init];
 	instructionToUse.opCode = opcodeToSet;
 	
-	instructionToUse.fieldZero = 
-	[[self.currentSeperatedInstruction objectAtIndex:1] integerValue];
+	instructionToUse.fieldZero =
+	[(self.currentSeperatedInstruction)[1] integerValue];
 	
-	instructionToUse.fieldTwo = 
-	[[self.currentSeperatedInstruction objectAtIndex:3] integerValue];
+	instructionToUse.fieldTwo =
+	[(self.currentSeperatedInstruction)[3] integerValue];
 	
-	NSNumber *numberToUse = 
-	[NSNumber numberWithInteger:instructionToUse.numericalRepresentation];
+	NSNumber *numberToUse =
+	@(instructionToUse.numericalRepresentation);
 	
-	NSNumber *immediateStorage = 
-	[NSNumber numberWithInteger:[[self.currentSeperatedInstruction objectAtIndex:2]
-															 integerValue]];
+	NSNumber *immediateStorage =
+	@([(self.currentSeperatedInstruction)[2]
+                                 integerValue]);
 	
 	[self.memory addObject:numberToUse];
 	[self.memory addObject:immediateStorage];
 	
-	[instructionToUse release];
 	
 }
 
 - (void) processCommandClass3 {
-	// Class 3 of our instructions. Mainly branching. I can't think of what it 
+	// Class 3 of our instructions. Mainly branching. I can't think of what it
 	// would be otherwise... maybe we will get lucky?
 	
-	id<VCInstructionDelegate> delegateToUse = 
+	id<VCInstructionDelegate> delegateToUse =
 	[self.delegateCache delegateForTextualCode:self.command];
 	
 	int8_t opcodeToSet = [delegateToUse instructionOperationCode];
@@ -397,37 +375,36 @@
 	VCInstruction *instructionToUse = [[VCInstruction alloc] init];
 	instructionToUse.opCode = opcodeToSet;
 	
-	instructionToUse.fieldZero = 
-	[[self.currentSeperatedInstruction objectAtIndex:1] integerValue];
+	instructionToUse.fieldZero =
+	[(self.currentSeperatedInstruction)[1] integerValue];
 	
-	instructionToUse.fieldOne = 
-	[[self.currentSeperatedInstruction objectAtIndex:2] integerValue];
+	instructionToUse.fieldOne =
+	[(self.currentSeperatedInstruction)[2] integerValue];
 	
 	id immediateStorage;
 	
-	NSNumber *numberToUse = 
-	[NSNumber numberWithInteger:instructionToUse.numericalRepresentation];
+	NSNumber *numberToUse =
+	@(instructionToUse.numericalRepresentation);
 	
-	if ([[self.currentSeperatedInstruction objectAtIndex:3] hasPrefix:@"*"]) {
-		immediateStorage = [self.currentSeperatedInstruction objectAtIndex:3];
+	if ([(self.currentSeperatedInstruction)[3] hasPrefix:@"*"]) {
+		immediateStorage = (self.currentSeperatedInstruction)[3];
 	} else {
-		immediateStorage = 
-		[NSNumber numberWithInteger:[[self.currentSeperatedInstruction objectAtIndex:3]
-																 integerValue]];
+		immediateStorage =
+		@([(self.currentSeperatedInstruction)[3]
+                                     integerValue]);
 	}
 	
 	
 	[self.memory addObject:numberToUse];
 	[self.memory addObject:immediateStorage];
 	
-	[instructionToUse release];
 	
 }
 
 - (void) processCommandClass4 {
 	// Class 4 of our instructions.
 	
-	id<VCInstructionDelegate> delegateToUse = 
+	id<VCInstructionDelegate> delegateToUse =
 	[self.delegateCache delegateForTextualCode:self.command];
 	
 	int8_t opcodeToSet = [delegateToUse instructionOperationCode];
@@ -435,21 +412,20 @@
 	VCInstruction *instructionToUse = [[VCInstruction alloc] init];
 	instructionToUse.opCode = opcodeToSet;
 	
-	instructionToUse.fieldZero = 
-	[[self.currentSeperatedInstruction objectAtIndex:1] integerValue];
+	instructionToUse.fieldZero =
+	[(self.currentSeperatedInstruction)[1] integerValue];
 	
-	NSNumber *numberToUse = 
-	[NSNumber numberWithInteger:instructionToUse.numericalRepresentation];
+	NSNumber *numberToUse =
+	@(instructionToUse.numericalRepresentation);
 	
 	[self.memory addObject:numberToUse];
 	
-	[instructionToUse release];
 	
 }
 
 - (void) processCommandClass5 {
 	// Class 5
-	id<VCInstructionDelegate> delegateToUse = 
+	id<VCInstructionDelegate> delegateToUse =
 	[self.delegateCache delegateForTextualCode:self.command];
 	
 	int8_t opcodeToSet = [delegateToUse instructionOperationCode];
@@ -457,24 +433,23 @@
 	VCInstruction *instructionToUse = [[VCInstruction alloc] init];
 	instructionToUse.opCode = opcodeToSet;
 	
-	instructionToUse.fieldZero = 
-	[[self.currentSeperatedInstruction objectAtIndex:1] integerValue];
+	instructionToUse.fieldZero =
+	[(self.currentSeperatedInstruction)[1] integerValue];
 	
-	instructionToUse.fieldOne = 
-	[[self.currentSeperatedInstruction objectAtIndex:2] integerValue];
+	instructionToUse.fieldOne =
+	[(self.currentSeperatedInstruction)[2] integerValue];
 	
-	NSNumber *numberToUse = 
-	[NSNumber numberWithInteger:instructionToUse.numericalRepresentation];
+	NSNumber *numberToUse =
+	@(instructionToUse.numericalRepresentation);
 	
 	[self.memory addObject:numberToUse];
 	
-	[instructionToUse release];
 	
 }
 
 - (void) processCommandClass6 {
 	// Class 6 of our instructions...
-	id<VCInstructionDelegate> delegateToUse = 
+	id<VCInstructionDelegate> delegateToUse =
 	[self.delegateCache delegateForTextualCode:self.command];
 	
 	int8_t opcodeToSet = [delegateToUse instructionOperationCode];
@@ -482,30 +457,29 @@
 	VCInstruction *instructionToUse = [[VCInstruction alloc] init];
 	instructionToUse.opCode = opcodeToSet;
 	
-	NSNumber *numberToUse = 
-	[NSNumber numberWithInteger:instructionToUse.numericalRepresentation];
+	NSNumber *numberToUse =
+	@(instructionToUse.numericalRepresentation);
 	
 	id immediateStorage;
 	
-	if ([[self.currentSeperatedInstruction objectAtIndex:1] hasPrefix:@"*"]) {
-		immediateStorage = [self.currentSeperatedInstruction objectAtIndex:1];
+	if ([(self.currentSeperatedInstruction)[1] hasPrefix:@"*"]) {
+		immediateStorage = (self.currentSeperatedInstruction)[1];
 	} else {
-		immediateStorage = 
-		[NSNumber numberWithInteger:[[self.currentSeperatedInstruction objectAtIndex:1]
-																 integerValue]];
+		immediateStorage =
+		@([(self.currentSeperatedInstruction)[1]
+                                     integerValue]);
 	}
 	
 	
 	[self.memory addObject:numberToUse];
 	[self.memory addObject:immediateStorage];
 	
-	[instructionToUse release];
 	
 }
 
 - (void) processCommandClass7 {
 	// Class 7 of our instructions...
-	id<VCInstructionDelegate> delegateToUse = 
+	id<VCInstructionDelegate> delegateToUse =
 	[self.delegateCache delegateForTextualCode:self.command];
 	
 	int8_t opcodeToSet = [delegateToUse instructionOperationCode];
@@ -513,44 +487,42 @@
 	VCInstruction *instructionToUse = [[VCInstruction alloc] init];
 	instructionToUse.opCode = opcodeToSet;
 	
-	instructionToUse.fieldZero = 
-	[[self.currentSeperatedInstruction objectAtIndex:1] integerValue];
+	instructionToUse.fieldZero =
+	[(self.currentSeperatedInstruction)[1] integerValue];
 	
-	instructionToUse.fieldOne = 
-	[[self.currentSeperatedInstruction objectAtIndex:2] integerValue];
+	instructionToUse.fieldOne =
+	[(self.currentSeperatedInstruction)[2] integerValue];
 	
-	NSNumber *numberToUse = 
-	[NSNumber numberWithInteger:instructionToUse.numericalRepresentation];
+	NSNumber *numberToUse =
+	@(instructionToUse.numericalRepresentation);
 	
 	[self.memory addObject:numberToUse];
 	
-	[instructionToUse release];
 	
 }
 
 - (void) processCommandClass8 {
 	// Class 8
-	id<VCInstructionDelegate> delegateToUse = 
+	id<VCInstructionDelegate> delegateToUse =
 	[self.delegateCache delegateForTextualCode:self.command];
 	
 	int8_t opcodeToSet = [delegateToUse instructionOperationCode];
 	
 	VCInstruction *instructionToUse = [[VCInstruction alloc] init];
 	instructionToUse.opCode = opcodeToSet;
-	instructionToUse.fieldZero = 
-	[[self.currentSeperatedInstruction objectAtIndex:2] integerValue];
+	instructionToUse.fieldZero =
+	[(self.currentSeperatedInstruction)[2] integerValue];
 	
-	NSNumber *numberToUse = 
-	[NSNumber numberWithInteger:instructionToUse.numericalRepresentation];
+	NSNumber *numberToUse =
+	@(instructionToUse.numericalRepresentation);
 	
-	NSNumber *immediateStorage = 
-	[NSNumber numberWithInteger:[[self.currentSeperatedInstruction objectAtIndex:1]
-															 integerValue]];
+	NSNumber *immediateStorage =
+	@([(self.currentSeperatedInstruction)[1]
+                                 integerValue]);
 	
 	[self.memory addObject:numberToUse];
 	[self.memory addObject:immediateStorage];
 	
-	[instructionToUse release];
 	
 }
 

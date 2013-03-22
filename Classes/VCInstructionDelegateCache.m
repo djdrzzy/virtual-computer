@@ -68,8 +68,8 @@
 #import "VCInstructionXorDelegate.h"
 
 @interface VCInstructionDelegateCache ()
-@property (nonatomic, readwrite, retain) NSDictionary *cacheByOpcode;
-@property (nonatomic, readwrite, retain) NSDictionary *cacheByTextualCode;
+@property (nonatomic, readwrite, strong) NSDictionary *cacheByOpcode;
+@property (nonatomic, readwrite, strong) NSDictionary *cacheByTextualCode;
 @end
 
 
@@ -83,8 +83,7 @@
 		NSMutableDictionary *dictionaryOfInstructionsByTextualCode = [[NSMutableDictionary alloc] init];
 		
 		NSArray *instructionDelegates = 
-		[NSArray arrayWithObjects:
-		 VCInstructionAddDelegate.class,
+		@[VCInstructionAddDelegate.class,
 		 VCInstructionAddImmediateDelegate.class,
 		 VCInstructionAndDelegate.class,
 		 VCInstructionAndImmediateDelegate.class,
@@ -115,14 +114,13 @@
 		 VCInstructionStoreWordImmediateDelegate.class,
 		 VCInstructionSubtractDelegate.class,
 		 VCInstructionSubtractImmediateDelegate.class,
-		 VCInstructionXorDelegate.class,
-		 nil];
+		 VCInstructionXorDelegate.class];
 		
 		for(NSUInteger i = 0; i < instructionDelegates.count; i++) {
-			NSAssert(class_conformsToProtocol([instructionDelegates objectAtIndex:i], @protocol(VCInstructionDelegate)),
+			NSAssert(class_conformsToProtocol(instructionDelegates[i], @protocol(VCInstructionDelegate)),
 							 @"The encountered class does not conform to the proper protocol!");
 			
-			id delegateToCache = [[[instructionDelegates objectAtIndex:i] alloc] init];
+			id delegateToCache = [[instructionDelegates[i] alloc] init];
 			
 			NSString *classKeyOpcode = [NSString stringWithFormat:@"%i", 
 																	[delegateToCache instructionOperationCode]];
@@ -135,7 +133,6 @@
 			[dictionaryOfInstructionsByOpcode setValue:delegateToCache forKey:classKeyOpcode];
 			[dictionaryOfInstructionsByTextualCode setValue:delegateToCache forKey:classKeyTextualCode];
 			
-			[delegateToCache release];
 		}
 		
 		
@@ -143,8 +140,6 @@
 		self.cacheByTextualCode = dictionaryOfInstructionsByTextualCode;
 		
 		
-		[dictionaryOfInstructionsByOpcode release];
-		[dictionaryOfInstructionsByTextualCode release];
 		
 		
 		
@@ -152,12 +147,6 @@
 	return self;
 }
 
--(void) dealloc {
-	self.cacheByOpcode = nil;
-	self.cacheByTextualCode = nil;
-	
-	[super dealloc];
-}
 
 -(NSObject<VCInstructionDelegate>*) delegateForOpcode:(int)opcode {
 	id delegateToReturn = nil;
@@ -167,7 +156,7 @@
 	delegateToReturn = [self.cacheByOpcode valueForKey:classKey];
 	
 	if (!delegateToReturn) {
-		delegateToReturn = [[[VCInstructionNopDelegate alloc] init] autorelease];
+		delegateToReturn = [[VCInstructionNopDelegate alloc] init];
 	}
 	
 	return delegateToReturn;
@@ -182,7 +171,7 @@
 	delegateToReturn = [self.cacheByTextualCode valueForKey:classKey];
 	
 	if (!delegateToReturn) {
-		delegateToReturn = [[[VCInstructionNopDelegate alloc] init] autorelease];
+		delegateToReturn = [[VCInstructionNopDelegate alloc] init];
 	}
 	
 	return delegateToReturn;	

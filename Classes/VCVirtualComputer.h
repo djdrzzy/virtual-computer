@@ -23,9 +23,9 @@
 @class VCInstructionDelegateCache, VCMemory, VCRegisters;
 
 @interface VCVirtualComputer : NSObject
-@property (nonatomic, readwrite, retain) VCRegisters                  *registerTable;
-@property (nonatomic, readwrite, retain) VCMemory                     *memoryTable;
-@property (nonatomic, readwrite, retain) VCInstructionDelegateCache   *delegateCache;
+@property (nonatomic, readwrite, strong) VCRegisters                  *registerTable;
+@property (nonatomic, readwrite, strong) VCMemory                     *memoryTable;
+@property (nonatomic, readwrite, strong) VCInstructionDelegateCache   *delegateCache;
 @property (nonatomic, readwrite, assign) int32_t                      cyclesToRun;
 /**
  * This loads the state from a plist.

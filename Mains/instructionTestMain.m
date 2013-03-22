@@ -24,88 +24,88 @@
 
 int main(int argc, char *argv[])
 {	
-	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+	@autoreleasepool {
 	
 	
-	NSMutableArray *arrayOfInstructionNamesToTest = 
-	[[[NSMutableArray alloc] init] autorelease];
-	
-	
-	// Data transfer
-	[arrayOfInstructionNamesToTest addObject:@"LW"];
-	[arrayOfInstructionNamesToTest addObject:@"LWI"];
-	[arrayOfInstructionNamesToTest addObject:@"SW"];
-	[arrayOfInstructionNamesToTest addObject:@"SWI"];
-	
-	// Logical
-	[arrayOfInstructionNamesToTest addObject:@"AND"];
-	[arrayOfInstructionNamesToTest addObject:@"ANDI"];
-	[arrayOfInstructionNamesToTest addObject:@"OR"];
-	[arrayOfInstructionNamesToTest addObject:@"ORI"];
-	[arrayOfInstructionNamesToTest addObject:@"XOR"];
-	[arrayOfInstructionNamesToTest addObject:@"NOT"];
-	[arrayOfInstructionNamesToTest addObject:@"SLT"];
-	[arrayOfInstructionNamesToTest addObject:@"SLTI"];
-	
-	// Branch
-	[arrayOfInstructionNamesToTest addObject:@"BEQ"];
-	[arrayOfInstructionNamesToTest addObject:@"BNE"];
-	[arrayOfInstructionNamesToTest addObject:@"BGT"];
-	[arrayOfInstructionNamesToTest addObject:@"BGE"];
-	[arrayOfInstructionNamesToTest addObject:@"BLT"];
-	[arrayOfInstructionNamesToTest addObject:@"BLE"];
-	
-	// Jump
-	[arrayOfInstructionNamesToTest addObject:@"JMP"];
-	[arrayOfInstructionNamesToTest addObject:@"JMPR"];
-	
-	// Misc
-	[arrayOfInstructionNamesToTest addObject:@"IN"];
-	[arrayOfInstructionNamesToTest addObject:@"OUT"];
-	[arrayOfInstructionNamesToTest addObject:@"NOP"];
-	[arrayOfInstructionNamesToTest addObject:@"HALT"];
-	
-	// Shift
-	[arrayOfInstructionNamesToTest addObject:@"SLL"];
-	[arrayOfInstructionNamesToTest addObject:@"SRL"];
-	
-	// Arithmetic
-	[arrayOfInstructionNamesToTest addObject:@"ADD"];
-	[arrayOfInstructionNamesToTest addObject:@"ADDI"];
-	[arrayOfInstructionNamesToTest addObject:@"SUB"];
-	[arrayOfInstructionNamesToTest addObject:@"SUBI"];
-	[arrayOfInstructionNamesToTest addObject:@"MUL"];
-	[arrayOfInstructionNamesToTest addObject:@"DIV"];
-	
-	
-	// Our fibonacci calculator! Whoooo!!!
-	[arrayOfInstructionNamesToTest addObject:@"FIB"];
-	
+		NSMutableArray *arrayOfInstructionNamesToTest = 
+		[[NSMutableArray alloc] init];
+		
+		
+		// Data transfer
+		[arrayOfInstructionNamesToTest addObject:@"LW"];
+		[arrayOfInstructionNamesToTest addObject:@"LWI"];
+		[arrayOfInstructionNamesToTest addObject:@"SW"];
+		[arrayOfInstructionNamesToTest addObject:@"SWI"];
+		
+		// Logical
+		[arrayOfInstructionNamesToTest addObject:@"AND"];
+		[arrayOfInstructionNamesToTest addObject:@"ANDI"];
+		[arrayOfInstructionNamesToTest addObject:@"OR"];
+		[arrayOfInstructionNamesToTest addObject:@"ORI"];
+		[arrayOfInstructionNamesToTest addObject:@"XOR"];
+		[arrayOfInstructionNamesToTest addObject:@"NOT"];
+		[arrayOfInstructionNamesToTest addObject:@"SLT"];
+		[arrayOfInstructionNamesToTest addObject:@"SLTI"];
+		
+		// Branch
+		[arrayOfInstructionNamesToTest addObject:@"BEQ"];
+		[arrayOfInstructionNamesToTest addObject:@"BNE"];
+		[arrayOfInstructionNamesToTest addObject:@"BGT"];
+		[arrayOfInstructionNamesToTest addObject:@"BGE"];
+		[arrayOfInstructionNamesToTest addObject:@"BLT"];
+		[arrayOfInstructionNamesToTest addObject:@"BLE"];
+		
+		// Jump
+		[arrayOfInstructionNamesToTest addObject:@"JMP"];
+		[arrayOfInstructionNamesToTest addObject:@"JMPR"];
+		
+		// Misc
+		[arrayOfInstructionNamesToTest addObject:@"IN"];
+		[arrayOfInstructionNamesToTest addObject:@"OUT"];
+		[arrayOfInstructionNamesToTest addObject:@"NOP"];
+		[arrayOfInstructionNamesToTest addObject:@"HALT"];
+		
+		// Shift
+		[arrayOfInstructionNamesToTest addObject:@"SLL"];
+		[arrayOfInstructionNamesToTest addObject:@"SRL"];
+		
+		// Arithmetic
+		[arrayOfInstructionNamesToTest addObject:@"ADD"];
+		[arrayOfInstructionNamesToTest addObject:@"ADDI"];
+		[arrayOfInstructionNamesToTest addObject:@"SUB"];
+		[arrayOfInstructionNamesToTest addObject:@"SUBI"];
+		[arrayOfInstructionNamesToTest addObject:@"MUL"];
+		[arrayOfInstructionNamesToTest addObject:@"DIV"];
+		
+		
+		// Our fibonacci calculator! Whoooo!!!
+		[arrayOfInstructionNamesToTest addObject:@"FIB"];
+		
 
-	
-	TestRunner *testRunner = [[[TestRunner alloc] init] autorelease];
-	for (NSString *instruction in arrayOfInstructionNamesToTest) {
-		BOOL result = [testRunner runTestForInstruction:instruction];
-		if (result) {
-			NSLog(@"%@ test result: YES", instruction);
-		} else {
-			NSLog(@"XXX: %@ test result: NO", instruction);
+		
+		TestRunner *testRunner = [[TestRunner alloc] init];
+		for (NSString *instruction in arrayOfInstructionNamesToTest) {
+			BOOL result = [testRunner runTestForInstruction:instruction];
+			if (result) {
+				NSLog(@"%@ test result: YES", instruction);
+			} else {
+				NSLog(@"XXX: %@ test result: NO", instruction);
+			}
 		}
+		
+		// Now we should clean up after ourselves...
+		NSError *error = NULL;
+		[[NSFileManager defaultManager] 
+		 removeItemAtPath:[TestRunner tempDirectoryPath] 
+		 error:&error];
+		
+		if (error) {
+			NSLog(@"%@", error);
+			NSLog(@"You should remember to remove <%@> yourself.", 
+						[TestRunner tempDirectoryPath]);
+		}	
+	
+	
 	}
-	
-	// Now we should clean up after ourselves...
-	NSError *error = NULL;
-	[[NSFileManager defaultManager] 
-	 removeItemAtPath:[TestRunner tempDirectoryPath] 
-	 error:&error];
-	
-	if (error) {
-		NSLog(@"%@", error);
-		NSLog(@"You should remember to remove <%@> yourself.", 
-					[TestRunner tempDirectoryPath]);
-	}	
-	
-	
-	[pool drain];
 	return 0;	
 }

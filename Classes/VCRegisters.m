@@ -31,10 +31,10 @@ static NSString *const PROGRAM_COUNTER_STATE_KEY = @"programCounter";
 static NSString *const HALT_FLAG_STATE_KEY = @"haltFlag";
 
 @interface VCRegisters ()
-@property (nonatomic, retain) NSMutableArray      *registers;
-@property (nonatomic, retain) NSMutableString     *inputRegister;
-@property (nonatomic, retain) NSMutableString     *outputRegister;
-@property (nonatomic, assign) VCVirtualComputer   *associatedComputer;
+@property (nonatomic, strong) NSMutableArray      *registers;
+@property (nonatomic, strong) NSMutableString     *inputRegister;
+@property (nonatomic, strong) NSMutableString     *outputRegister;
+@property (nonatomic, weak) VCVirtualComputer   *associatedComputer;
 @end
 
 @implementation VCRegisters
@@ -55,14 +55,13 @@ static NSString *const HALT_FLAG_STATE_KEY = @"haltFlag";
 		
 		NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
 		
-		[dictionary setValue:[[[NSMutableArray alloc] initWithObjects:[NSNumber numberWithInt:0x00000000], nil] autorelease] forKey:REGISTER_STATE_KEY];
-		[dictionary setValue:[[[NSMutableString alloc] initWithString:@""] autorelease] forKey:INPUT_STATE_KEY];
-		[dictionary setValue:[[[NSMutableString alloc] initWithString:@""] autorelease] forKey:OUTPUT_STATE_KEY];
-		[dictionary setValue:[NSNumber numberWithUnsignedInteger:0] forKey:PROGRAM_COUNTER_STATE_KEY];
-		[dictionary setValue:[NSNumber numberWithBool:NO] forKey:HALT_FLAG_STATE_KEY];
+		[dictionary setValue:[[NSMutableArray alloc] initWithObjects:@0x00000000, nil] forKey:REGISTER_STATE_KEY];
+		[dictionary setValue:[[NSMutableString alloc] initWithString:@""] forKey:INPUT_STATE_KEY];
+		[dictionary setValue:[[NSMutableString alloc] initWithString:@""] forKey:OUTPUT_STATE_KEY];
+		[dictionary setValue:@0U forKey:PROGRAM_COUNTER_STATE_KEY];
+		[dictionary setValue:@NO forKey:HALT_FLAG_STATE_KEY];
 		
 		[self loadStateWithRegisterTable:dictionary];
-		[dictionary release];
 		
 	}
 	return self;
@@ -75,18 +74,13 @@ static NSString *const HALT_FLAG_STATE_KEY = @"haltFlag";
 
 -(void) dealloc {
 
-	self.registers = nil;
-	self.inputRegister = nil;
-	self.outputRegister = nil;
 	self.associatedComputer = nil;
-	[super dealloc];
 }
 
 
 -(void)reset {
 	for(u_int32_t i = 0; i < [registers count]; i++) {
-		[registers replaceObjectAtIndex:(NSUInteger)i
-							 withObject:[NSNumber numberWithInt:0]];
+		registers[(NSUInteger)i] = @0;
 	}
 }
 
@@ -98,13 +92,12 @@ static NSString *const HALT_FLAG_STATE_KEY = @"haltFlag";
 }
 
 -(void)setValueOfRegister:(NSUInteger)theRegister withValue:(int)theNewValue {
-	[registers replaceObjectAtIndex:(NSUInteger)(theRegister % [registers count])
-						 withObject:[NSNumber numberWithInt:theNewValue]];
+	registers[(NSUInteger)(theRegister % [registers count])] = @(theNewValue);
 }
 
 -(int)valueOfRegister:(NSUInteger)theRegister {
 	int valueToReturn = 
-		[[registers objectAtIndex:((NSUInteger)theRegister % [registers count])] intValue];
+		[registers[((NSUInteger)theRegister % [registers count])] intValue];
 	
 	return (int)valueToReturn;
 }
@@ -120,23 +113,22 @@ static NSString *const HALT_FLAG_STATE_KEY = @"haltFlag";
 -(void) setValueOfOutputRegister:(int)valueToPush {
 	NSString *valueToInsert = [[NSString alloc] initWithFormat:@"%c", (char)valueToPush];
 	[outputRegister insertString:valueToInsert atIndex:0];
-	[valueToInsert release];
 }
 
 -(NSDictionary*) state {
-	NSMutableDictionary *dictionaryToReturn = [[[NSMutableDictionary alloc] init] autorelease];
-	[dictionaryToReturn setValue:[[self.registers copy] autorelease] forKey:REGISTER_STATE_KEY];
-	[dictionaryToReturn setValue:[[self.inputRegister copy] autorelease] forKey:INPUT_STATE_KEY];
-	[dictionaryToReturn setValue:[[self.outputRegister copy] autorelease] forKey:OUTPUT_STATE_KEY];
+	NSMutableDictionary *dictionaryToReturn = [[NSMutableDictionary alloc] init];
+	[dictionaryToReturn setValue:[self.registers copy] forKey:REGISTER_STATE_KEY];
+	[dictionaryToReturn setValue:[self.inputRegister copy] forKey:INPUT_STATE_KEY];
+	[dictionaryToReturn setValue:[self.outputRegister copy] forKey:OUTPUT_STATE_KEY];
 	[dictionaryToReturn setValue:[NSNumber numberWithInt:self.programCounter] forKey:PROGRAM_COUNTER_STATE_KEY];
-	[dictionaryToReturn setValue:[NSNumber numberWithBool:self.haltedFlag] forKey:HALT_FLAG_STATE_KEY];
+	[dictionaryToReturn setValue:@(self.haltedFlag) forKey:HALT_FLAG_STATE_KEY];
 	return dictionaryToReturn;
 }
 
 -(void)loadStateWithRegisterTable:(NSDictionary*)state {
-	self.registers = [[[NSMutableArray alloc] initWithArray:[state valueForKey:REGISTER_STATE_KEY]] autorelease];
-	self.inputRegister = [[[NSMutableString alloc] initWithString:[state valueForKey:INPUT_STATE_KEY]] autorelease];
-	self.outputRegister = [[[NSMutableString alloc] initWithString:[state valueForKey:OUTPUT_STATE_KEY]] autorelease];
+	self.registers = [[NSMutableArray alloc] initWithArray:[state valueForKey:REGISTER_STATE_KEY]];
+	self.inputRegister = [[NSMutableString alloc] initWithString:[state valueForKey:INPUT_STATE_KEY]];
+	self.outputRegister = [[NSMutableString alloc] initWithString:[state valueForKey:OUTPUT_STATE_KEY]];
 	self.programCounter = [[state valueForKey:PROGRAM_COUNTER_STATE_KEY] unsignedIntValue];
 	self.haltedFlag = [[state valueForKey:HALT_FLAG_STATE_KEY] boolValue];
 }

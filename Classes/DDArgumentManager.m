@@ -36,16 +36,16 @@
 		NSMutableArray *argumentArray = [NSMutableArray array];
 		
 		for(int i = 1; i < argc; i++) {
-			[argumentArray addObject:[NSString stringWithUTF8String:argv[i]]];
+			[argumentArray addObject:@(argv[i])];
 		}
 		
 		NSSet *setOfFlags = [NSSet setWithArray:flags];
 		
 		for(NSUInteger i = 0; i < argumentArray.count; i++) {
-			if ([setOfFlags containsObject:[argumentArray objectAtIndex:i]]) {
+			if ([setOfFlags containsObject:argumentArray[i]]) {
 				if (i + 1 < argumentArray.count) {
-					[flagMapping setValue:[argumentArray objectAtIndex:i+1] 
-								   forKey:[argumentArray objectAtIndex:i]];
+					[flagMapping setValue:argumentArray[i+1] 
+								   forKey:argumentArray[i]];
 				}
 			}
 		}
@@ -54,11 +54,6 @@
 	return self;
 }
 
-- (void) dealloc
-{
-	[flagMapping release];
-	[super dealloc];
-}
 
 -(NSString*) associatedValueForFlag:(NSString*)flag {
 	return [flagMapping valueForKey:flag];
